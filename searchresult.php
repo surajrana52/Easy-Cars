@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Easy Cars</title>
+    <title>Search Result | Easy Cars</title>
     <link href="assets/css/master.css" rel="stylesheet">
 </head>
 <body>
@@ -250,3 +250,16 @@
 				</div>
 			</div>
 		</footer><!--b-footer-->
+		
+		<!--Main-->
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.custom.js"></script>
+		<!-- jQuery UI Slider -->
+		<script src="assets/plugins/slider/jquery.ui-slider.js"></script>
+		
+		<script src="assets/js/jquery.smooth-scroll.js"></script>
+		<script src="assets/js/wow.min.js"></script>
+		<script src="assets/js/jquery.placeholder.min.js"></script>
+		<script src="assets/js/theme.js"></script>

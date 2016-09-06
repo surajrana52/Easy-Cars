@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Easy Cars</title>
+    <title>Car Details | Easy Cars</title>
     <link href="assets/css/master.css" rel="stylesheet">
 </head>
 <body>

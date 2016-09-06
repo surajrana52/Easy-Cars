@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Easy Cars</title>
+    <title>Compare | Easy Cars</title>
     <link href="assets/css/master.css" rel="stylesheet">
 </head>
 <body>
@@ -55,7 +55,7 @@
     </div>
 </nav><!--b-nav-->
 
-<section class="b-pageHeader">
+		<section class="b-pageHeader">
 			<div class="container">
 				<h1 class=" wow zoomInLeft" data-wow-delay="0.3s">Auto Listings</h1>
 				<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.3s">
@@ -95,16 +95,9 @@
 							<div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
 								<h3>Mercedes E-Class 2015</h3>
 								<img class="img-responsive center-block" src="" alt="merc" />
-								<div class="b-compare__images-item-price m-right m-left"><div class="b-compare__images-item-price-vs">vs</div>$52,650</div>
+								<div class="b-compare__images-item-price m-right m-left">$52,650</div>
 							</div>
-						</div>
-						<div class="col-md-3 col-sm-4 col-xs-12">
-							<div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
-								<h3>Lexus LS 2015</h3>
-								<img class="img-responsive center-block" src="" alt="lexus" />
-								<div class="b-compare__images-item-price m-left">$120,440</div>
-							</div>
-						</div>
+						</div>						
 					</div>
 				</div>
 				<div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
@@ -128,12 +121,7 @@
 								<div class="b-compare__block-inside-value">
 									Mercedez-Benz 2015
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Lexus 2015
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -150,12 +138,7 @@
 								<div class="b-compare__block-inside-value">
 									38.0 in
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									37.9 in
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -172,12 +155,7 @@
 								<div class="b-compare__block-inside-value">
 									73.0 in  /  57.0 in  /  192.5 in
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									56.4 in  /  73.8 in  /  205.0 in
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -194,12 +172,7 @@
 								<div class="b-compare__block-inside-value">
 									113.5 in
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									121.6 in
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -216,12 +189,7 @@
 								<div class="b-compare__block-inside-value">
 									12.9 cu.ft.
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									13.0 cu.ft.
-								</div>
-							</div>
+							</div>							
 						</div>
 					</div>
 				</div>
@@ -246,12 +214,7 @@
 								<div class="b-compare__block-inside-value">
 									201 L / Inline 4
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									5.0 L / V8
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -268,12 +231,7 @@
 								<div class="b-compare__block-inside-value">
 									21.1 gal. / Diesel fuel
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									22.2 gal / Premium
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -290,12 +248,7 @@
 								<div class="b-compare__block-inside-value">
 									28 / 42 mpg
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									19 / 23 mpg
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -312,12 +265,7 @@
 								<div class="b-compare__block-inside-value">
 									195 hp @ 3800 rpm
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									438 hp @ 6400 rpm
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -334,12 +282,7 @@
 								<div class="b-compare__block-inside-value">
 									7-speed shiftable automatic
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Variable-speed automatic
-								</div>
-							</div>
+							</div>							
 						</div>
 					</div>
 				</div>
@@ -364,12 +307,7 @@
 								<div class="b-compare__block-inside-value">
 									28 / 42 mpg
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									19 / 23 mpg
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -386,12 +324,7 @@
 								<div class="b-compare__block-inside-value">
 									195 hp @ 3800 rpm
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									438 hp @ 6400 rpm
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -408,12 +341,7 @@
 								<div class="b-compare__block-inside-value">
 									7-speed shiftable automatic
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Variable-speed automatic
-								</div>
-							</div>
+							</div>							
 						</div>
 					</div>
 				</div>
@@ -438,12 +366,7 @@
 								<div class="b-compare__block-inside-value">
 									Standard
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Standard
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -460,12 +383,7 @@
 								<div class="b-compare__block-inside-value">
 									Standard
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Standard
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -482,12 +400,7 @@
 								<div class="b-compare__block-inside-value">
 									245/45R17 tires
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									245/45R V tires
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -504,12 +417,7 @@
 								<div class="b-compare__block-inside-value">
 									Alloy wheels
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Painted alloy wheels
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -526,12 +434,7 @@
 								<div class="b-compare__block-inside-value">
 									Standard
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Standard
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -548,12 +451,7 @@
 								<div class="b-compare__block-inside-value">
 									Optional
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									N / A
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -570,12 +468,7 @@
 								<div class="b-compare__block-inside-value">
 									Standard
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Standard
-								</div>
-							</div>
+							</div>							
 						</div>
 						<div class="row">
 							<div class="col-xs-3">
@@ -592,12 +485,7 @@
 								<div class="b-compare__block-inside-value">
 									Optional
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value">
-									Standard
-								</div>
-							</div>
+							</div>						
 						</div>
 					</div>
 				</div>
@@ -637,18 +525,7 @@
 										<li><span class="fa fa-check"></span>CD Player</li>
 									</ul>
 								</div>
-							</div>
-							<div class="col-xs-3">
-								<div class="b-compare__block-inside-value s-lineDownCenter">
-									<ul>
-										<li><span class="fa fa-check"></span>Security System</li>
-										<li><span class="fa fa-check"></span>Air Conditioning</li>
-										<li><span class="fa fa-check"></span>Alloy Wheels</li>
-										<li><span class="fa fa-check"></span>CD Player</li>
-										<li><span class="fa fa-check"></span>Driver Side Airbag</li>
-									</ul>
-								</div>
-							</div>
+							</div>							
 						</div>
 					</div>
 				</div>
@@ -659,10 +536,7 @@
 						</div>
 						<div  class="col-sm-3 col-xs-12">
 							<a href="" class="btn m-btn">VIEW LISTINGS<span class="fa fa-angle-right"></span></a>        
-						</div>
-						<div class="col-sm-3 col-xs-12">
-							<a href="" class="btn m-btn">VIEW LISTINGS<span class="fa fa-angle-right"></span></a>      
-						</div>
+						</div>						
 					</div>
 				</div>
 			</div>
@@ -716,3 +590,11 @@
 				</div>
 			</div>
 		</footer><!--b-footer-->
+		
+		<!--Main-->
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.custom.js"></script>
+<script src="assets/js/jquery.placeholder.min.js"></script>
+<script src="assets/js/theme.js"></script>
