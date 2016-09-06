@@ -55,3 +55,15 @@
         </div>
     </div>
 </nav><!--b-nav-->
+
+<section class="b-pageHeader">
+			<div class="container">
+				<h1 class="wow zoomInLeft" data-wow-delay="0.5s">Vehicle Details Page</h1>
+			</div>
+		</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+			<div class="container">
+				<a href="index.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="listings.html" class="b-breadCumbs__page">Luxury Cars</a>
+			</div>
+		</div><!--b-breadCumbs-->
