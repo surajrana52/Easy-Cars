@@ -67,3 +67,23 @@
 				<a href="index.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="listings.html" class="b-breadCumbs__page">Luxury Cars</a>
 			</div>
 		</div><!--b-breadCumbs-->
+		
+		<div class="b-infoBar">
+			<div class="container">
+				<div class="row wow zoomInUp" data-wow-delay="0.5s">
+					<div class="col-xs-3">
+						
+					</div>
+					<div class="col-xs-9">
+						<div class="b-infoBar__btns">
+							<a href="#" class="btn m-btn m-infoBtn">SHARE THIS VEHICLE<span class="fa fa-angle-right"></span></a>
+							<a href="#" class="btn m-btn m-infoBtn">PRINT THIS PAGE<span class="fa fa-angle-right"></span></a>
+							<a href="#" class="btn m-btn m-infoBtn">ADD TO Compare<span class="fa fa-angle-right"></span></a>
+							<a href="#" class="btn m-btn m-infoBtn">DOWNLOAD brochure<span class="fa fa-angle-right"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--b-infoBar-->
+		
+		
