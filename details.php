@@ -45,8 +45,7 @@
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
+                            <li><a href="about.html">About</a></li>                            
                             <li><a href="contacts.html">Contact Us</a></li>
                         </ul>
                     </div>
