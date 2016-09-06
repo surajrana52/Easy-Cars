@@ -667,3 +667,52 @@
 				</div>
 			</div>
 		</section><!--b-compare-->
+		
+		<div class="b-features">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9 col-md-offset-3 col-xs-6 col-xs-offset-6">
+						<ul class="b-features__items">
+							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Low Prices, No Haggling</li>
+							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Largest Car Database</li>
+							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">EMI Calculator</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!--b-features-->
+		
+		<footer class="b-footer">
+			<a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-4">
+						<div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
+							<div class="b-nav__logo">
+								<h3><a href="index.html">Easy<span>Cars</span></a></h3>
+								<h2><a href="index.html">Project For SV.CO 2016</a></h2>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-xs-8">
+						<div class="b-footer__content wow fadeInRight" data-wow-delay="0.3s">
+							<div class="b-footer__content-social">
+								<a href="#"><span class="fa fa-facebook-square"></span></a>
+								<a href="#"><span class="fa fa-twitter-square"></span></a>
+								<a href="#"><span class="fa fa-google-plus-square"></span></a>
+								<a href="#"><span class="fa fa-instagram"></span></a>
+								<a href="#"><span class="fa fa-youtube-square"></span></a>								
+							</div>
+							<nav class="b-footer__content-nav">
+								<ul>
+									<li><a href="index.html">Home</a></li>																											
+									<li><a href="about.html">About</a></li>
+									<li><a href="contacts.html">Contact Us</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer><!--b-footer-->
