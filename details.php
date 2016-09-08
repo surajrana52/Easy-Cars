@@ -390,11 +390,11 @@ if (!empty($_GET)){
 								<div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">CAR PAYMENT CALCULATOR</h2>
 									<div class="b-detail__main-aside-payment-form">
-										<form>
-											<input type="text" placeholder="TOTAL VALUE/LOAN AMOUNT" value="" id="lamt" />
-											<input type="text" placeholder="DOWN PAYMENT" value="" id="dpay" />
+										<form action="">
+											<input type="text" placeholder="LOAN AMOUNT" value="" id="lamt" required />
+											<input type="text" placeholder="DOWN PAYMENT" value="" id="dpay" required />
 											<div class="s-relative">
-												<select id="term" class="m-select">
+												<select id="term" class="m-select" required> 
 													<option >LOAN TERM IN MONTHS</option>
 													<option value="12">12</option>
 													<option value="24">24</option>
@@ -403,16 +403,16 @@ if (!empty($_GET)){
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
-											<input type="text" placeholder="INTEREST RATE IN %" value="" id="interest" />
-											<button class="btn m-btn" onclick="calemi()">Calculate<span class="fa fa-angle-right"></span></button>
-											<button class="btn m-btn" onclick="calreset()">Reset<span class="fa fa-angle-right"></span></button>
+											<input type="text" placeholder="INTEREST RATE IN %" value="" id="interest" required />
+											<button type="button" class="btn m-btn" onclick="calemi()">Calculate<span class="fa fa-angle-right"></span></button>
+											<button type="button" class="btn m-btn" onclick="resetemi()">Reset<span class="fa fa-angle-right"></span></button>
 										</form>
 									</div>
 									<div class="b-detail__main-aside-about-call">
 										<span class="fa fa-calculator"></span>
-										<div id="emi-cal-res">calculate result <p>PER MONTH</p></div>
-										<p>Total Interest Payable <span id="emi-cal-res1"></span></p>
-										<p>Total Amount To Be PAID <span id="emi-cal-res2"></span></p>
+										<div id="emi-cal-res"></div><p>PER MONTH</p>
+										<p>Interest Payable:  <span id="emi-cal-res1"></span></p>
+										<p>Total Amount Paid:  <span id="emi-cal-res2"></span></p>
 									</div>
 								</div>
 							</aside>
