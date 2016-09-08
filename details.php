@@ -104,13 +104,12 @@ if (!empty($_GET)){
 					<div class="row">
 						<div class="col-sm-9 col-xs-12">
 							<div class="b-detail__head-title">
-								<h1>Car name here</h1>
-								<h3>Details here</h3>
+								<h1><?php echo strtoupper($data['manufacturer'].' '.$data['model']) ?></h1>
 							</div>
 						</div>
 						<div class="col-sm-3 col-xs-12">
 							<div class="b-detail__head-price">
-								<div class="b-detail__head-price-num">Price here</div>
+								<div class="b-detail__head-price-num"><?php $obj->moneyconv(); ?></div>
 								<p>Included Taxes &amp; Checkup</p>
 							</div>
 						</div>
@@ -264,7 +263,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Make</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Nissan</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['manufacturer']) ?></p>
 										</div>
 									</div>
 									<div class="row">
@@ -272,7 +271,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Model</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Maxima</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['model']) ?></p>
 										</div>
 									</div>									
 									<div class="row">
@@ -280,7 +279,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Body Type</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Sedan</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['vehical_type']) ?></p>
 										</div>
 									</div>																		
 									<div class="row">
@@ -288,7 +287,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Transmission</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Dual-Clutch Automatic</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['transmission']) ?></p>
 										</div>
 									</div>
 									<div class="row">
@@ -296,7 +295,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Exterior Color</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Dark Grey</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['exterior_color']) ?></p>
 										</div>
 									</div>
 									<div class="row">
@@ -304,7 +303,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Interior color</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Jet Black</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['interior_color']) ?></p>
 										</div>
 									</div>
 									<div class="row">
@@ -312,7 +311,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Passangers/Doors</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">5 Passengers / 4 Doors</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['passengers_doors']) ?></p>
 										</div>
 									</div>
 									<div class="row">
@@ -320,7 +319,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Fuel Type</h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">Gasoline Fue</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['fuel_type']) ?></p>
 										</div>
 									</div>
 									<div class="row">
@@ -328,7 +327,7 @@ if (!empty($_GET)){
 											<h4 class="b-detail__main-aside-desc-title">Fuel Economy </h4>
 										</div>
 										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">10.8L/100km</p>
+											<p class="b-detail__main-aside-desc-value"><?php echo strtoupper($data['millage']) ?> KMPL</p>
 										</div>
 									</div>									
 								</div>

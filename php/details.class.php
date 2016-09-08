@@ -4,12 +4,14 @@ class details{
     
     private $db;
     public $result;
+    public $images;
     
     public function __construct($DB_con)
     {
         $this->db = $DB_con;
     }
-    
+
+    //fetch details from database for details.php page
     public function getDetails($carid){
         
         $stmt = $this->db->prepare("SELECT * FROM car_details WHERE id=:carid");
@@ -17,6 +19,23 @@ class details{
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         while ($res = $stmt->fetch()){
             $this->result = $res;
+            return true;
+        }
+    }
+
+    //formate car price for details.php page
+    public function moneyconv(){
+        $amount = $this->result['price'];
+        echo number_format($amount);
+    }
+
+    public function getCarImages(){
+        $scarid= $this->result['id'];
+        $stmt = $this->db->prepare("SELECT * FROM car_detail_images WHERE id='".$scarid."'");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        while ($res1 = $stmt->fetch()){
+            $this->images = $res1;
             return true;
         }
     }
