@@ -4,7 +4,9 @@ if (!empty($_GET)){
 	$carid=$_GET['carid'];
 	if($obj->getDetails($carid)){
 		$data = $obj->result;
-
+	}
+	if($obj->getCarImages()){
+		$data2 = $obj->images;
 	}
 
 }else{
@@ -125,7 +127,7 @@ if (!empty($_GET)){
 											<ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
 												<li class="s-relative">                                        
 													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>
-													<img class="img-responsive center-block" src="" alt="nissan" />
+													<img class="img-responsive center-block" src="<?php echo $data2['image1']; ?>" alt="nissan" />
 												</li>
 												<li class="s-relative">                                        
 													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>

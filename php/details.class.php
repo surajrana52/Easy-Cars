@@ -31,7 +31,7 @@ class details{
 
     public function getCarImages(){
         $scarid= $this->result['id'];
-        $stmt = $this->db->prepare("SELECT * FROM car_detail_images WHERE id='".$scarid."'");
+        $stmt = $this->db->prepare("SELECT * FROM car_detail_images WHERE car_id='".$scarid."'");
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         while ($res1 = $stmt->fetch()){
