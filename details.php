@@ -159,7 +159,7 @@ if (!empty($_GET)){
 									<div class="b-detail__main-info-characteristics-one">
 										<div class="b-detail__main-info-characteristics-one-top">
 											<div><span class="fa fa-trophy"></span></div>
-											<p>5,000KM</p>
+											<p><?php echo $data['warrenty'] ?></p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
 											Warrenty
@@ -168,7 +168,7 @@ if (!empty($_GET)){
 									<div class="b-detail__main-info-characteristics-one">
 										<div class="b-detail__main-info-characteristics-one-top">
 											<div><span class="fa fa-at"></span></div>
-											<p>Auto</p>
+											<p><?php echo strtoupper($data['transmission']) ?></p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
 											Transmission
@@ -176,17 +176,8 @@ if (!empty($_GET)){
 									</div>
 									<div class="b-detail__main-info-characteristics-one">
 										<div class="b-detail__main-info-characteristics-one-top">
-											<div><span class="fa fa-car"></span></div>
-											<p>FWD</p>
-										</div>
-										<div class="b-detail__main-info-characteristics-one-bottom">
-											Drivetrain
-										</div>
-									</div>
-									<div class="b-detail__main-info-characteristics-one">
-										<div class="b-detail__main-info-characteristics-one-top">
 											<div><span class="fa fa-user"></span></div>
-											<p>5</p>
+											<p><?php echo $data['passengers_doors'] ?></p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
 											Passangers
@@ -194,8 +185,17 @@ if (!empty($_GET)){
 									</div>
 									<div class="b-detail__main-info-characteristics-one">
 										<div class="b-detail__main-info-characteristics-one-top">
+											<div><span class="fa fa-at"></span></div>
+											<p><?php echo strtoupper($data['exterior_color']) ?></p>
+										</div>
+										<div class="b-detail__main-info-characteristics-one-bottom">
+											Color
+										</div>
+									</div>
+									<div class="b-detail__main-info-characteristics-one">
+										<div class="b-detail__main-info-characteristics-one-top">
 											<div><span class="fa fa-fire-extinguisher"></span></div>
-											<p>10.8L</p>
+											<p><?php echo strtoupper($data['fuel_type']) ?></p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
 											Fuel Type
@@ -204,7 +204,7 @@ if (!empty($_GET)){
 									<div class="b-detail__main-info-characteristics-one">
 										<div class="b-detail__main-info-characteristics-one-top">
 											<div><span class="fa fa-fire-extinguisher"></span></div>
-											<p>7.5L</p>
+											<p><?php echo $data['millage'] ?> L</p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
 											On Highway
