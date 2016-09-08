@@ -10,4 +10,6 @@ try{
 }catch(PDOException $e){
     echo $e->getMessage();
 }
+require ('details.class.php');
+$obj = new details($DB_con);
 ?>

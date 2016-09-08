@@ -1,9 +1,19 @@
+<?php
+require ('php/details.class.php');
+if (!empty($_GET)){
+	$obj = new details();
+	$carid=$_GET['carid'];
+
+}else{
+	//header('Location: index.html');
+}
+?>
 <html>
 <head>
     <title>Car Details | Easy Cars</title>
     <link href="assets/css/master.css" rel="stylesheet">
 </head>
-<body>
+<body class="m-detail">
 <header class="b-topBar">
     <div class="container">
         <div class="row">
@@ -185,7 +195,7 @@
 											<p>10.8L</p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
-											In City
+											Fuel Type
 										</div>
 									</div>
 									<div class="b-detail__main-info-characteristics-one">
@@ -200,21 +210,12 @@
 								</div>
 								<div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
 									<div class="b-detail__main-aside-about-form-links">
-										<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>GENERAL INQUIRY</a>
-										<a href="#" class="j-tab" data-to='#info2'>SCHEDULE TEST DRIVE</a>
-										<a href="#" class="j-tab" data-to='#info3'>GENERAL INQUIRY</a>
-										<a href="#" class="j-tab" data-to='#info4'>SCHEDULE TEST DRIVE</a>
+										<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>GENERAL INQUIRY</a>										
 									</div>
 									<div id="info1">
 										<p></p>
 										
-									</div>
-									<div id="info2">
-										<p></p>
-									</div>
-									<div id="info3">
-										<p></p>
-									</div>
+									</div>									
 								</div>
 								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">EXTRA FEATURES</h2>
@@ -270,15 +271,7 @@
 										<div class="col-xs-6">
 											<p class="b-detail__main-aside-desc-value">Maxima</p>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-6">
-											<h4 class="b-detail__main-aside-desc-title">Kilometres</h4>
-										</div>
-										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">39,000 km</p>
-										</div>
-									</div>
+									</div>									
 									<div class="row">
 										<div class="col-xs-6">
 											<h4 class="b-detail__main-aside-desc-title">Body Type</h4>
@@ -286,31 +279,7 @@
 										<div class="col-xs-6">
 											<p class="b-detail__main-aside-desc-value">Sedan</p>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-6">
-											<h4 class="b-detail__main-aside-desc-title">Style/trim</h4>
-										</div>
-										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">SV Premium</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-6">
-											<h4 class="b-detail__main-aside-desc-title">Engine</h4>
-										</div>
-										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">V-6 cyl</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-6">
-											<h4 class="b-detail__main-aside-desc-title">Drivetrain</h4>
-										</div>
-										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">EWD</p>
-										</div>
-									</div>
+									</div>																		
 									<div class="row">
 										<div class="col-xs-6">
 											<h4 class="b-detail__main-aside-desc-title">Transmission</h4>
@@ -353,20 +322,12 @@
 									</div>
 									<div class="row">
 										<div class="col-xs-6">
-											<h4 class="b-detail__main-aside-desc-title">City Fuel Economy </h4>
+											<h4 class="b-detail__main-aside-desc-title">Fuel Economy </h4>
 										</div>
 										<div class="col-xs-6">
 											<p class="b-detail__main-aside-desc-value">10.8L/100km</p>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-6">
-											<h4 class="b-detail__main-aside-desc-title">Hwy Fuel Economy</h4>
-										</div>
-										<div class="col-xs-6">
-											<p class="b-detail__main-aside-desc-value">7.7L/100km</p>
-										</div>
-									</div>
+									</div>									
 								</div>
 								<div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">INQUIRE ABOUT THIS VEHICLE</h2>
@@ -429,4 +390,68 @@
 				</div>
 			</div>			
 			</section>
+			
+			<div class="b-features">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9 col-md-offset-3 col-xs-6 col-xs-offset-6">
+						<ul class="b-features__items">
+							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Low Prices, No Haggling</li>
+							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Largest Car Database</li>
+							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">EMI Calculator</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!--b-features-->
 		
+		<footer class="b-footer">
+			<a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-4">
+						<div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
+							<div class="b-nav__logo">
+								<h3><a href="index.html">Easy<span>Cars</span></a></h3>
+								<h2><a href="index.html">Project For SV.CO 2016</a></h2>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-xs-8">
+						<div class="b-footer__content wow fadeInRight" data-wow-delay="0.3s">
+							<div class="b-footer__content-social">
+								<a href="#"><span class="fa fa-facebook-square"></span></a>
+								<a href="#"><span class="fa fa-twitter-square"></span></a>
+								<a href="#"><span class="fa fa-google-plus-square"></span></a>
+								<a href="#"><span class="fa fa-instagram"></span></a>
+								<a href="#"><span class="fa fa-youtube-square"></span></a>								
+							</div>
+							<nav class="b-footer__content-nav">
+								<ul>
+									<li><a href="index.html">Home</a></li>																											
+									<li><a href="about.html">About</a></li>
+									<li><a href="contacts.html">Contact Us</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer><!--b-footer-->
+				
+		<!--Main-->
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.custom.js"></script>
+<!--bxSlider-->
+		<script src="assets/plugins/bxslider/jquery.bxslider.js"></script>
+		<!-- jQuery UI Slider -->
+		<script src="assets/plugins/slider/jquery.ui-slider.js"></script>		
+		<script src="assets/js/jquery.smooth-scroll.js"></script>
+		<script src="assets/js/wow.min.js"></script>
+		<script src="assets/js/jquery.placeholder.min.js"></script>
+		<script src="assets/js/theme.js"></script>
+	</body>
+</html>

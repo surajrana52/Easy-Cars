@@ -250,7 +250,7 @@
 				</div>
 			</div>
 		</footer><!--b-footer-->
-		
+		</body>
 		<!--Main-->
 <script src="assets/js/jquery-1.11.3.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
@@ -263,3 +263,4 @@
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.placeholder.min.js"></script>
 		<script src="assets/js/theme.js"></script>
+		</html>
