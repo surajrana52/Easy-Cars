@@ -126,22 +126,43 @@ if (!empty($_GET)){
 										<div class="col-xs-10">
 											<ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
 												<li class="s-relative">                                        
-													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>
-													<img class="img-responsive center-block" src="<?php echo $data2['image1']; ?>" alt="nissan" />
+													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"></a>
+													<img class="img-responsive center-block" src="<?php echo $data2['image1']; ?>" alt="img" />
 												</li>
 												<li class="s-relative">                                        
-													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>
-													<img class="img-responsive center-block" src="" alt="nissan" />
+													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"></a>
+													<img class="img-responsive center-block" src="<?php echo $data2['image2']; ?>" alt="img" />
+												</li>
+												<li class="s-relative">
+													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"></a>
+													<img class="img-responsive center-block" src="<?php echo $data2['image3']; ?>" alt="img" />
+												</li>
+												<li class="s-relative">
+													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"></a>
+													<img class="img-responsive center-block" src="<?php echo $data2['image4']; ?>" alt="img" />
+												</li>
+												<li class="s-relative">
+													<a data-toggle="modal" data-target="#myModal" href="#" class="b-items__cars-one-img-video"></a>
+													<img class="img-responsive center-block" src="<?php echo $data2['image5']; ?>" alt="img" />
 												</li>
 											</ul>
 										</div>
 										<div class="col-xs-2 pagerSlider pagerVertical">
 											<div class="b-detail__main-info-images-small" id="bx-pager">
 												<a href="#" data-slide-index="0" class="b-detail__main-info-images-small-one">
-													<img class="img-responsive" src="" alt="nissan" />
+													<img class="img-responsive" src="<?php echo $data2['image1']; ?>" alt="img" />
 												</a>
 												<a href="#" data-slide-index="1" class="b-detail__main-info-images-small-one">
-													<img class="img-responsive" src="" alt="nissan" />
+													<img class="img-responsive" src="<?php echo $data2['image2']; ?>" alt="img" />
+												</a>
+												<a href="#" data-slide-index="2" class="b-detail__main-info-images-small-one">
+													<img class="img-responsive" src="<?php echo $data2['image3']; ?>" alt="img" />
+												</a>
+												<a href="#" data-slide-index="3" class="b-detail__main-info-images-small-one">
+													<img class="img-responsive" src="<?php echo $data2['image4']; ?>" alt="img" />
+												</a>
+												<a href="#" data-slide-index="4" class="b-detail__main-info-images-small-one">
+													<img class="img-responsive" src="<?php echo $data2['image5']; ?>" alt="img" />
 												</a>
 											</div>
 										</div>
@@ -369,23 +390,29 @@ if (!empty($_GET)){
 								<div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">CAR PAYMENT CALCULATOR</h2>
 									<div class="b-detail__main-aside-payment-form">
-										<form action=" method="post">
-											<input type="text" placeholder="TOTAL VALUE/LOAN AMOUNT" value="" name="name" />
-											<input type="text" placeholder="DOWN PAYMENT" value="" name="name" />
+										<form>
+											<input type="text" placeholder="TOTAL VALUE/LOAN AMOUNT" value="" id="lamt" />
+											<input type="text" placeholder="DOWN PAYMENT" value="" id="dpay" />
 											<div class="s-relative">
-												<select name="select" class="m-select">
-													<option value="">LOAN TERM IN MONTHS</option>
+												<select id="term" class="m-select">
+													<option >LOAN TERM IN MONTHS</option>
+													<option value="12">12</option>
+													<option value="24">24</option>
+													<option value="36">36</option>
+													<option value="48">48</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
-											<input type="text" placeholder="INTEREST RATE IN %" value="" name="name" />
-											<button type="submit" class="btn m-btn">ESTIMATE PAYMENT<span class="fa fa-angle-right"></span></button>
+											<input type="text" placeholder="INTEREST RATE IN %" value="" id="interest" />
+											<button class="btn m-btn" onclick="calemi()">Calculate<span class="fa fa-angle-right"></span></button>
+											<button class="btn m-btn" onclick="calreset()">Reset<span class="fa fa-angle-right"></span></button>
 										</form>
 									</div>
 									<div class="b-detail__main-aside-about-call">
 										<span class="fa fa-calculator"></span>
-										<div>calculate result <p>PER MONTH</p></div>
-										<p>Total Number of Payments: <span>50</span></p>
+										<div id="emi-cal-res">calculate result <p>PER MONTH</p></div>
+										<p>Total Interest Payable <span id="emi-cal-res1"></span></p>
+										<p>Total Amount To Be PAID <span id="emi-cal-res2"></span></p>
 									</div>
 								</div>
 							</aside>
@@ -456,6 +483,7 @@ if (!empty($_GET)){
 		<script src="assets/js/jquery.smooth-scroll.js"></script>
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.placeholder.min.js"></script>
-		<script src="assets/js/theme.js"></script>
+		<script src="assets/js/customfunc.js"></script>
+		<script src="assets/js/theme.js"></script>		
 	</body>
 </html>
