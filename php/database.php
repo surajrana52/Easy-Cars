@@ -1,5 +1,5 @@
 <?php
-$host="localhost";
+$host="127.0.0.1";
 $username="root";
 $userpass="";
 $dbname="sv_co";
@@ -10,6 +10,4 @@ try{
 }catch(PDOException $e){
     echo $e->getMessage();
 }
-require ('details.class.php');
-$obj = new details($DB_con);
 ?>

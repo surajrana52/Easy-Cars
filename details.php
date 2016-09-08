@@ -1,8 +1,11 @@
 <?php
 require ('php/details.class.php');
 if (!empty($_GET)){
-	$obj = new details();
 	$carid=$_GET['carid'];
+	if($obj->getDetails($carid)){
+		$data = $obj->result;
+
+	}
 
 }else{
 	//header('Location: index.html');
@@ -147,10 +150,10 @@ if (!empty($_GET)){
 									<div class="b-detail__main-info-characteristics-one">
 										<div class="b-detail__main-info-characteristics-one-top">
 											<div><span class="fa fa-car"></span></div>
-											<p>Brand New</p>
+											<p><?php echo strtoupper($data['vehical_type']) ?></p>
 										</div>
 										<div class="b-detail__main-info-characteristics-one-bottom">
-											Status
+											Vehical Type
 										</div>
 									</div>
 									<div class="b-detail__main-info-characteristics-one">
