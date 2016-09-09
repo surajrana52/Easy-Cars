@@ -1,5 +1,5 @@
 <?php
-require ('php/details.class.php');
+require ('php/classes/details.class.php');
 if (!empty($_GET)){
 	$carid=$_GET['carid'];
 	if($obj->getDetails($carid)){

@@ -1,5 +1,5 @@
 <?php
-require ('database.php');
+require ('php/database.php');
 class details{
     
     private $db;
@@ -29,6 +29,7 @@ class details{
         echo number_format($amount);
     }
 
+    //get car images for details.php page
     public function getCarImages(){
         $scarid= $this->result['id'];
         $stmt = $this->db->prepare("SELECT * FROM car_detail_images WHERE car_id='".$scarid."'");
