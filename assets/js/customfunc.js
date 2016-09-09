@@ -44,7 +44,8 @@ function resetemi(){
 // used jquery here
 
 $(document).ready(function() {
-
+	var form = $('form1');
+	var submit = $('')
 });
 
 
