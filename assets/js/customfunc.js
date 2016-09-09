@@ -52,7 +52,7 @@ $(document).ready(function() {
     ev.preventDefault();
 	
 	$.ajax({
-	    url: '',
+	    url: 'php/controller/enquiryHandler.php',
         type: 'POST',
         dataType: 'html', // request type html/json/xml
         data: form.serialize(), // serialize form data
@@ -60,7 +60,7 @@ $(document).ready(function() {
             submit.html('Processing...'); // change submit button text
         },
         success: function(data) {
-            //alert.html(data).fadeIn(); // fade in response data
+            console.log(data);
             form.trigger('reset'); // reset form
             submit.html('DONE'); // reset submit button text
             submit.prop("disabled", true);
