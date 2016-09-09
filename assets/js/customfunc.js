@@ -40,3 +40,5 @@ function resetemi(){
 	document.getElementById("emi-cal-res2").innerHTML = "";
 	document.getElementById("emi-cal-res1").innerHTML = "";
 }
+
+

@@ -358,11 +358,11 @@ if (!empty($_GET)){
 									<h2 class="s-titleDet">INQUIRE ABOUT THIS VEHICLE</h2>
 									<div class="b-detail__main-aside-about-call">
 										<span class="fa fa-phone"></span>
-										<div>1-888-378-4027</div>
-										<p>Call the seller 24/7 and they would help you.</p>
+										<div>0000-000-000</div>
+										<p>Call the seller and they would help you.</p>
 									</div>
 									<div class="b-detail__main-aside-about-seller">
-										<p>Seller Info: <span>NissanCarDealer</span></p>
+										<p>Seller Info: <span><?php echo strtoupper($data['manufacturer'])?></span></p>
 									</div>
 									<div class="b-detail__main-aside-about-form">
 										<div class="b-detail__main-aside-about-form-links">
@@ -370,20 +370,16 @@ if (!empty($_GET)){
 											<a href="#" class="j-tab" data-to='#form2'>SCHEDULE TEST DRIVE</a>
 										</div>
 										<form id="form1" action="" method="post">
-											<input type="text" placeholder="YOUR NAME" value="" name="name" />
-											<input type="email" placeholder="EMAIL ADDRESS" value="" name="email" />
-											<input type="tel" placeholder="PHONE NO." value="" name="name" />
-											<textarea name="text" placeholder="message"></textarea>
-											<div><input type="checkbox" name="one" value="" /><label>Send me a copy of this message</label></div>
-											<div><input type="checkbox" name="two" value="" /><label>Send me a copy of this message</label></div>
-											<button type="submit" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
+											<input type="text" placeholder="YOUR NAME*" value="" name="name" required />
+											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
+											<input type="text" placeholder="Mobile No*" value="" name="name" required/>
+											<textarea name="text" placeholder="Your Message*" required></textarea>											
+											<button type="button" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
 										<form id="form2" action="" method="post">
 											<input type="text" placeholder="YOUR NAME" value="" name="name" />
-											<textarea name="text" placeholder="message"></textarea>
-											<div><input type="checkbox" name="one" value="" /><label>Send me a copy of this message</label></div>
-											<div><input type="checkbox" name="two" value="" /><label>Send me a copy of this message</label></div>
-											<button type="submit" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
+											<textarea name="text" placeholder="message"></textarea>											
+											<button type="button" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
 									</div>
 								</div>
@@ -476,6 +472,8 @@ if (!empty($_GET)){
 <script src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/modernizr.custom.js"></script>
+<!-- -->
+<script src="assets/js/sweetalert.min.js"></script>
 <!--bxSlider-->
 		<script src="assets/plugins/bxslider/jquery.bxslider.js"></script>
 		<!-- jQuery UI Slider -->
