@@ -290,6 +290,7 @@ if (!empty($_GET)){
 									<div class="row">
 									<div class="col-md-4">
 										
+										<iframe width="680" height="390" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCVti-XCLnG764UxGHUcGJwEI4puM-kREo&q=place_id:ChIJ1TnuU2UVrjsRKlOZHGDub6Y" allowfullscreen></iframe>
 									</div>
 									</div>
 								</div>
