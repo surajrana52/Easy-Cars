@@ -40,5 +40,11 @@ class details{
             return true;
         }
     }
+
+    //ajax submit of enquiry form
+    public function ajaxSubGen($name,$email,$mobile,$massage){
+        $stmt = $this->db->prepare("INSERT INTO user_subscribe (name,email,mobile) VALUES (:name,:email,:mobile)");
+        $stmt->bindValue(':name',$name);
+    }
 }
 $obj = new details($DB_con);
