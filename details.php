@@ -238,7 +238,7 @@ if (!empty($_GET)){
 										<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>GENERAL INQUIRY</a>										
 									</div>
 									<div id="info1">
-										<p></p>
+										<p><?php echo $data['description']; ?></p>
 										
 									</div>									
 								</div>
@@ -275,8 +275,27 @@ if (!empty($_GET)){
 										</div>
 									</div>
 								</div>
+								
+								 <div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
+									<h2 class="s-titleDet">Video Review</h2>
+									<div class="row">
+									<div class="col-md-4">
+										<iframe width="680" height="390" src="<?php echo $data['youtube_url']; ?>" frameborder="0" allowfullscreen></iframe>
+									</div>
+									</div>
+								</div>
+								
+								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
+									<h2 class="s-titleDet">Car Availability</h2>
+									<div class="row">
+									<div class="col-md-4">
+										
+									</div>
+									</div>
+								</div>
+								
 							</div>
-						</div>
+						</div>						
 						<div class="col-md-4 col-xs-12">
 							<aside class="b-detail__main-aside">
 								<div class="b-detail__main-aside-desc wow zoomInUp" data-wow-delay="0.5s">
@@ -366,20 +385,23 @@ if (!empty($_GET)){
 									</div>
 									<div class="b-detail__main-aside-about-form">
 										<div class="b-detail__main-aside-about-form-links">
-											<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#form1'>GENERAL INQUIRY</a>
+											<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#form1-one'>GENERAL INQUIRY</a>
 											<a href="#" class="j-tab" data-to='#form2'>SCHEDULE TEST DRIVE</a>
 										</div>
-										<form id="form1" action="" method="post">
-											<input type="text" placeholder="YOUR NAME*" value="" name="user_name" required />
+										<form id="form1-one" action="#" method="post">
+											<input type="text" placeholder="YOUR NAME*" value="" name="user_name" pattern='[A-Za-z\\s]*' title="Alphabets only" required />
 											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
-											<input type="text" placeholder="Mobile No*" value="" name="mobile" required/>
+											<input type="tel" maxlength="10" placeholder="Mobile No*" value="" name="mobile" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required/>
 											<textarea name="massage" placeholder="Your Message*" required></textarea>
-											<button type="button" id="gebut" onclick="enquiryajax();" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
+											<input type="hidden" value="yes" name="general_enq" />
+											<button type="submit" id="gebut" name="" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
 										<form id="form2" action="" method="post">
-											<input type="text" placeholder="YOUR NAME" value="" name="name" />
-											<textarea name="text" placeholder="message"></textarea>											
-											<button type="button" id="stdbut" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
+											<input type="text" placeholder="YOUR NAME*" value="" name="user_name" pattern='[A-Za-z\\s]*' title="Alphabets only" required />
+											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
+											<input type="text" placeholder="Mobile No*" value="" name="mobile" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required/>
+											<input type="hidden" value="yes" name="test_drive" />
+											<button type="submit" id="stdbut" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
 									</div>
 								</div>
@@ -387,8 +409,8 @@ if (!empty($_GET)){
 									<h2 class="s-titleDet">CAR PAYMENT CALCULATOR</h2>
 									<div class="b-detail__main-aside-payment-form">
 										<form action="">
-											<input type="text" placeholder="LOAN AMOUNT" value="" id="lamt" required />
-											<input type="text" placeholder="DOWN PAYMENT" value="" id="dpay" required />
+											<input type="text" placeholder="LOAN AMOUNT" value="" id="lamt" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
+											<input type="text" placeholder="DOWN PAYMENT" value="" id="dpay" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
 											<div class="s-relative">
 												<select id="term" class="m-select" required> 
 													<option >LOAN TERM IN MONTHS</option>

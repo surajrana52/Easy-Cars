@@ -41,15 +41,16 @@ function resetemi(){
 	document.getElementById("emi-cal-res1").innerHTML = "";
 }
 
-// used jquery here
+//*used jquery here
+$(document).ready(function() {
+  var form = $('#form1-one'); //form to be submited
+	var submit = $('#gebut'); //form submit button	
 
-function enquiryajax() {
-	var form = $('#form1'); //form to be submited
-	var submit = $('#gebut'); //form submit button
-	//var alert = $('alertid'); // alert div
-	// form submit event
-	
-	$.ajax({
+  // form submit event
+ $("form#form1-one").submit(function(ev) {
+    ev.preventDefault();
+
+    $.ajax({
 	    url: 'php/controller/enquiryHandler.php',
         type: 'POST',
         dataType: 'html', // request type html/json/xml
@@ -59,14 +60,48 @@ function enquiryajax() {
         },
         success: function(data) {
             console.log(data);
+			swal("Enquiry submitted!", "Seller will get in touch with you soon", "success")
             form.trigger('reset'); // reset form
+            submit.hide();
+			submit.prop("disabled", true);
             submit.html('DONE'); // reset submit button text
-            submit.prop("disabled", true);
         },
         error: function(e) {
             console.log(e)
         }
-		});	
-};
+		});		
+  });
+});
 
+//*used jquery here
+$(document).ready(function() {
+  var form = $('#form2'); //form to be submited
+	var submit = $('#stdbut'); //form submit button	
+
+  // form submit event
+ $("form#form2").submit(function(ev) {
+    ev.preventDefault();
+
+    $.ajax({
+	    url: 'php/controller/enquiryHandler.php',
+        type: 'POST',
+        dataType: 'html', // request type html/json/xml
+        data: form.serialize(), // serialize form data
+        beforeSend: function() {
+            submit.html('Processing...'); // change submit button text
+        },
+        success: function(data) {
+            console.log(data);
+			swal("Enquiry submitted2!", "Seller will get in touch with you soon", "success")
+            form.trigger('reset'); // reset form
+            submit.hide();
+			submit.prop("disabled", true);
+            submit.html('DONE'); // reset submit button text
+        },
+        error: function(e) {
+            console.log(e)
+        }
+		});		
+  });
+});
 

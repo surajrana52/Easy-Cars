@@ -98,9 +98,10 @@
 			var slider = $('.slider').length;
 			if(slider){
 		        jQuery(".slider").slider({
-		            min: 100,
-		            max: 1000,
-		            values: [0,1000],
+		            min: 100000,
+		            max: 5000000,
+		            values: [0,5000000],
+					step: 5000,
 		            range: true,
 		            slide: function(event, ui){
 		                $(".ui-slider-handle span.min").text(ui.values[0]);
@@ -111,8 +112,8 @@
 		                $("input.j-max").val(ui.values[1]);
 		            }
 		        });
-		        $(".ui-slider-handle:first-of-type").append("<span class='min'>100</span>");
-		        $(".ui-slider-handle:last-of-type").append("<span class='max'>1000</span>");
+		        $(".ui-slider-handle:first-of-type").append("<span class='min'>100000</span>");
+		        $(".ui-slider-handle:last-of-type").append("<span class='max'>5000000</span>");
 			}
 		},
 
