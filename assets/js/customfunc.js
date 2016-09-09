@@ -46,15 +46,30 @@ function resetemi(){
 $(document).ready(function() {
 	var form = $('form1'); //form to be submited
 	var submit = $('gebut'); //form submit button
-	
+	//var alert = $('alertid'); // alert div
 	// form submit event
  $("form#form1").submit(function(ev) {
     ev.preventDefault();
 	
 	$.ajax({
-	
+	    url: '',
+        type: 'POST',
+        dataType: 'html', // request type html/json/xml
+        data: form.serialize(), // serialize form data
+        beforeSend: function() {
+            submit.html('Processing...'); // change submit button text
+        },
+        success: function(data) {
+            //alert.html(data).fadeIn(); // fade in response data
+            form.trigger('reset'); // reset form
+            submit.html('DONE'); // reset submit button text
+            submit.prop("disabled", true);
+        },
+        error: function(e) {
+            console.log(e)
+        }
 	});
-	
+ });
 });
 
 
