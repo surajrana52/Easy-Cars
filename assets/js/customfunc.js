@@ -41,4 +41,10 @@ function resetemi(){
 	document.getElementById("emi-cal-res1").innerHTML = "";
 }
 
+// used jquery here
+
+$(document).ready(function() {
+
+});
+
 

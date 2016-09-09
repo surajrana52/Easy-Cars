@@ -366,17 +366,17 @@ if (!empty($_GET)){
 									</div>
 									<div class="b-detail__main-aside-about-form">
 										<div class="b-detail__main-aside-about-form-links">
-											<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#form1'>GENERAL INQUIRY</a>
-											<a href="#" class="j-tab" data-to='#form2'>SCHEDULE TEST DRIVE</a>
+											<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#genenq-form'>GENERAL INQUIRY</a>
+											<a href="#" class="j-tab" data-to='#testdrive-form'>SCHEDULE TEST DRIVE</a>
 										</div>
-										<form id="form1" action="" method="post">
+										<form id="genenq-form" action="" method="post">
 											<input type="text" placeholder="YOUR NAME*" value="" name="name" required />
 											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
 											<input type="text" placeholder="Mobile No*" value="" name="name" required/>
 											<textarea name="text" placeholder="Your Message*" required></textarea>											
 											<button type="button" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
-										<form id="form2" action="" method="post">
+										<form id="testdrive-form" action="" method="post">
 											<input type="text" placeholder="YOUR NAME" value="" name="name" />
 											<textarea name="text" placeholder="message"></textarea>											
 											<button type="button" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
