@@ -43,8 +43,43 @@ class details{
 
     //ajax submit of enquiry form
     public function ajaxSubGen($name,$email,$mobile,$massage){
-        $stmt = $this->db->prepare("INSERT INTO user_subscribe (name,email,mobile) VALUES (:name,:email,:mobile)");
-        $stmt->bindValue(':name',$name);
+        $stmt = $this->db->prepare("INSERT INTO user_subscribe (user_name,email,mobile) VALUES (:uname,:email,:mobile)");
+        $stmt->bindValue(':uname',$name);
+        $stmt->bindValue(':email',$email);
+        $stmt->bindValue(':mobile',$mobile);
+        if ($stmt->execute()){
+            require ('assets/PHPMailer/PHPMailerAutoload.php');
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'sg2plcpnl0059.prod.sin2.secureserver.net';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = '';                 // SMTP username
+            $mail->Password = '';                  // SMTP password
+            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 587;                                    // TCP port to connect to
+
+            $mail->setFrom('','');
+            $mail->addAddress($email);               // Name is optional
+
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->Subject = 'Thank you for placing order on HyperFix.in';
+
+            $mail->Body    =$massage;
+            $mail->AltBody = 'Please View In HTML Compatable Browser';
+
+            if(!$mail->send()) {
+                echo 'failed';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'sent';
+            }
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }
 $obj = new details($DB_con);
