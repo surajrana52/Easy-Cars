@@ -9,6 +9,10 @@ if (!empty($_GET)){
 		$data2 = $obj->images;
 	}
 
+    if($obj->getFeatures()){
+        $data3 = $obj->getFeatures_array;
+    }
+
 }else{
 	//header('Location: index.html');
 }
@@ -245,34 +249,20 @@ if (!empty($_GET)){
 								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">EXTRA FEATURES</h2>
 									<div class="row">
-										<div class="col-xs-4">
-											<ul>
-												<li><span class="fa fa-check"></span>Security System</li>
-												<li><span class="fa fa-check"></span>Air Conditioning</li>
-												<li><span class="fa fa-check"></span>Alloy Wheels</li>
-												<li><span class="fa fa-check"></span>Anti-Lock Brakes (ABS)</li>
-												<li><span class="fa fa-check"></span>Anti-Theft</li>
-												<li><span class="fa fa-check"></span>Anti-Starter</li>
-											</ul>
-										</div>
-										<div class="col-xs-4">
-											<ul>
-												<li><span class="fa fa-check"></span>Dual Airbag</li>
-												<li><span class="fa fa-check"></span>Intermittent Wipers</li>
-												<li><span class="fa fa-check"></span>Keyless Entry</li>
-												<li><span class="fa fa-check"></span>Power Mirrors</li>
-												<li><span class="fa fa-check"></span>Power Seat</li>
-												<li><span class="fa fa-check"></span>Power Steering</li>
-											</ul>
-										</div>
-										<div class="col-xs-4">
-											<ul>
-												<li><span class="fa fa-check"></span>CD Player</li>
-												<li><span class="fa fa-check"></span>Driver Side Airbag</li>
-												<li><span class="fa fa-check"></span>Power Windows</li>
-												<li><span class="fa fa-check"></span>Remote Start</li>
-											</ul>
-										</div>
+										<?php
+                                        //code for car features using array_chunks
+                                        foreach (array_chunk($data3, 4, true) as $array)
+                                        {
+                                            foreach($array as $arrays)
+                                            {
+                                                echo'<div class="col-xs-4">';
+                                                echo'<ul>';
+                                                echo '<li><span class="fa fa-check"></span>'.$arrays.'</li>';
+                                                echo "</ul>";
+                                                echo "</div>";
+                                            }
+                                        }
+                                        ?>
 									</div>
 								</div>
 								
@@ -286,11 +276,12 @@ if (!empty($_GET)){
 								</div>
 								
 								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
-									<h2 class="s-titleDet">Car Availability</h2>
+									<h2 class="s-titleDet">Car Is Available With</h2>
 									<div class="row">
 									<div class="col-md-4">
-										
-										<iframe width="680" height="390" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCVti-XCLnG764UxGHUcGJwEI4puM-kREo&q=place_id:ChIJ1TnuU2UVrjsRKlOZHGDub6Y" allowfullscreen></iframe>
+									<iframe width="680" height="390" frameborder="0" style="border:0" 
+									src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCVti-XCLnG764UxGHUcGJwEI4puM-kREo&q=place_id:<?php echo $data['place_id']; ?>" allowfullscreen>
+									</iframe>
 									</div>
 									</div>
 								</div>

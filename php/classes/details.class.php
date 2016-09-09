@@ -7,6 +7,7 @@ class details
     private $db;
     public $result;
     public $images;
+    public $getFeatures_array;
     public $ajaxSubGen_result;
     public $ajaxSubTest_result;
 
@@ -49,6 +50,21 @@ class details
             return true;
         }
     }
+
+    //get features of car for details.php page
+    public function getFeatures(){
+
+        $scarid = $this->result['id'];
+        $stmt = $this->db->prepare("SELECT extra_features FROM car_details WHERE id='" . $scarid . "'");
+        $stmt->execute();
+        //$stmt->setFetchMode(PDO::FETCH_BOTH);
+        while ($res2 = $stmt->fetchColumn()) {
+            $myArray = explode(",",$res2);
+            $this->getFeatures_array = $myArray;
+            return true;
+        }
+    }
+
 
     //ajax submit of enquiry form
     public function ajaxSubGen($name, $email, $mobile, $massage)
