@@ -44,8 +44,17 @@ function resetemi(){
 // used jquery here
 
 $(document).ready(function() {
-	var form = $('form1');
-	var submit = $('')
+	var form = $('form1'); //form to be submited
+	var submit = $('gebut'); //form submit button
+	
+	// form submit event
+ $("form#form1").submit(function(ev) {
+    ev.preventDefault();
+	
+	$.ajax({
+	
+	});
+	
 });
 
 
