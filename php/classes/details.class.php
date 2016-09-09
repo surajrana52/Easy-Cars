@@ -1,10 +1,11 @@
 <?php
-require ('php/database.php');
+require __DIR__.'/../database.php';
 class details{
     
     private $db;
     public $result;
     public $images;
+    public $ajaxSubGen_result;
     
     public function __construct($DB_con)
     {
@@ -25,12 +26,14 @@ class details{
 
     //formate car price for details.php page
     public function moneyconv(){
+
         $amount = $this->result['price'];
         echo number_format($amount);
     }
 
     //get car images for details.php page
     public function getCarImages(){
+
         $scarid= $this->result['id'];
         $stmt = $this->db->prepare("SELECT * FROM car_detail_images WHERE car_id='".$scarid."'");
         $stmt->execute();
@@ -43,12 +46,14 @@ class details{
 
     //ajax submit of enquiry form
     public function ajaxSubGen($name,$email,$mobile,$massage){
+
         $stmt = $this->db->prepare("INSERT INTO user_subscribe (user_name,email,mobile) VALUES (:uname,:email,:mobile)");
         $stmt->bindValue(':uname',$name);
         $stmt->bindValue(':email',$email);
         $stmt->bindValue(':mobile',$mobile);
         if ($stmt->execute()){
-            require ('assets/PHPMailer/PHPMailerAutoload.php');
+
+            require '../../assets/PHPMailer/PHPMailerAutoload.php';
             $mail = new PHPMailer;
 
             $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -59,7 +64,7 @@ class details{
             $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                    // TCP port to connect to
 
-            $mail->setFrom('','');
+            $mail->setFrom('support@hyperfix.in','Suraj');
             $mail->addAddress($email);               // Name is optional
 
             $mail->isHTML(true);                                  // Set email format to HTML
@@ -70,10 +75,9 @@ class details{
             $mail->AltBody = 'Please View In HTML Compatable Browser';
 
             if(!$mail->send()) {
-                echo 'failed';
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
+                $this->ajaxSubGen_result = 'failed'. $mail->ErrorInfo;
             } else {
-                echo 'sent';
+                $this->ajaxSubGen_result = "Submited to database";
             }
             return true;
         }else{

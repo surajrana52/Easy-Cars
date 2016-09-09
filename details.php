@@ -370,11 +370,11 @@ if (!empty($_GET)){
 											<a href="#" class="j-tab" data-to='#form2'>SCHEDULE TEST DRIVE</a>
 										</div>
 										<form id="form1" action="" method="post">
-											<input type="text" placeholder="YOUR NAME*" value="" name="name" required />
+											<input type="text" placeholder="YOUR NAME*" value="" name="user_name" required />
 											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
-											<input type="text" placeholder="Mobile No*" value="" name="name" required/>
-											<textarea name="text" placeholder="Your Message*" required></textarea>											
-											<button type="button" id="gebut" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
+											<input type="text" placeholder="Mobile No*" value="" name="mobile" required/>
+											<textarea name="massage" placeholder="Your Message*" required></textarea>
+											<button type="button" id="gebut" onclick="enquiryajax();" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
 										<form id="form2" action="" method="post">
 											<input type="text" placeholder="YOUR NAME" value="" name="name" />

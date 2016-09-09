@@ -43,13 +43,11 @@ function resetemi(){
 
 // used jquery here
 
-$(document).ready(function() {
-	var form = $('form1'); //form to be submited
-	var submit = $('gebut'); //form submit button
+function enquiryajax() {
+	var form = $('#form1'); //form to be submited
+	var submit = $('#gebut'); //form submit button
 	//var alert = $('alertid'); // alert div
 	// form submit event
- $("form#form1").submit(function(ev) {
-    ev.preventDefault();
 	
 	$.ajax({
 	    url: 'php/controller/enquiryHandler.php',
@@ -68,8 +66,7 @@ $(document).ready(function() {
         error: function(e) {
             console.log(e)
         }
-	});
- });
-});
+		});	
+};
 
 
