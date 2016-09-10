@@ -98,22 +98,21 @@
 			var slider = $('.slider').length;
 			if(slider){
 		        jQuery(".slider").slider({
-		            min: 100000,
-		            max: 5000000,
-		            values: [0,5000000],
-					step: 5000,
-		            range: true,
+				    range: "min",
+		            min: 200000,
+		            max: 2500000,
+		            values:[300000],
+					step:50000,
 		            slide: function(event, ui){
-		                $(".ui-slider-handle span.min").text(ui.values[0]);
-		                $(".ui-slider-handle span.max").text(ui.values[1]);
+		                $(".ui-slider-handle span.min").text('Above Rs.'+ui.values[0].toString().replace(/(\d)(?=(\d\d)+\d$)/g, "$1,"));
+		                //$(".ui-slider-handle span.max").text('Rs.'+ui.values[1].toString().replace(/(\d)(?=(\d\d)+\d$)/g, "$1,"));
 		            },
 		            stop:function(event, ui){
-		                $("input.j-min").val(ui.values[0]);
-		                $("input.j-max").val(ui.values[1]);
+		                $("input.j-min").val(ui.values[0]);		                
 		            }
 		        });
-		        $(".ui-slider-handle:first-of-type").append("<span class='min'>100000</span>");
-		        $(".ui-slider-handle:last-of-type").append("<span class='max'>5000000</span>");
+		        $(".ui-slider-handle:first-of-type").append("<span class='min'>Above Rs.200000</span>");
+		        //$(".ui-slider-handle:last-of-type").append("<span class='max'>Rs.2500000</span>");
 			}
 		},
 
