@@ -10,6 +10,11 @@ if (isset($_POST['findmycar'])) {
 	$displacement = $_POST['displacement'];
 	$budget = $_POST['budget'];
 
+    if ($obj->createQuery($cartype,$manufacturer,$fuel_type,$millage,$transmission,$displacement,$budget)){
+
+        $data= $obj->output;
+    }
+    echo $data;
 }
 ?>
 <html>
