@@ -2,6 +2,7 @@
 require ('php/classes/searchresult.class.php');
 var_dump($_POST);
 if (isset($_POST['findmycar'])) {
+    $cartype = $_POST['cartype'];
 	$manufacturer = $_POST['car_manufacturer'];
 	$fuel_type = $_POST['fuel_type'];
 	$millage = $_POST['millage'];
@@ -9,7 +10,6 @@ if (isset($_POST['findmycar'])) {
 	$displacement = $_POST['displacement'];
 	$budget = $_POST['budget'];
 
-	
 }
 ?>
 <html>
