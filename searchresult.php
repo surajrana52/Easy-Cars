@@ -14,9 +14,11 @@ if (isset($_POST['findmycar'])) {
 
         $data= $obj->output;
         $data2 =$obj->queryResult;
+        $data3 =$obj->carImages;
     }
     echo $data;
     print_r($data2);
+    print_r($data3);
 }
 ?>
 <html>
@@ -111,17 +113,17 @@ if (isset($_POST['findmycar'])) {
 						<div class="b-items__cars">
 							<div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
 								<div class="b-items__cars-one-img">
-									<img src="" />
+									<img src="<?php echo $data3['image'] ?>" />
 									<a data-toggle="modal" data-target="#myModal" href="#"></a>									
-									<form action="" method="post">
+									<form>
 										<input type="checkbox" name="check1" id='check1'/>
 										<label for="check1" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
 									</form>
 								</div>
 								<div class="b-items__cars-one-info">
 									<header class="b-items__cars-one-info-header s-lineDownLeft">
-										<h2>Car name</h2>
-										<span>Price</span>
+										<h2><?php echo strtoupper($data2['manufacturer'].' '.$data2['model']); ?></h2>
+										<span>Rs.<?php $obj->moneyconv(); ?></span>
 									</header>
 									<p>
 										

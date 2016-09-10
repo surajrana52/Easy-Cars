@@ -32,9 +32,17 @@ class details
     //formate car price for details.php page
     public function moneyconv()
     {
-
         $amount = $this->result['price'];
-        echo number_format($amount);
+        $len = strlen($amount);
+        $m = '';
+        $money = strrev($amount);
+        for($i=0;$i<$len;$i++){
+            if(( $i==3 || ($i>3 && ($i-1)%2==0) )&& $i!=$len){
+                $m .=',';
+            }
+            $m .=$money[$i];
+        }
+        echo strrev($m);
     }
 
     //get car images for details.php page

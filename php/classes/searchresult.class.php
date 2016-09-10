@@ -7,6 +7,7 @@ class searchresult
     private $db;
     public $output;
     public $queryResult;
+    public $carImages;
 
     public function __construct($DB_con)
     {
@@ -15,7 +16,7 @@ class searchresult
 
     public function createQuery($cartype,$manufacturer,$fuel_type,$millage,$transmission,$displacement,$budget){
 
-        $query = "SELECT id,manufacturer,model,millage,fuel_type,description FROM car_details";
+        $query = "SELECT id,manufacturer,model,millage,price,fuel_type,description FROM car_details";
         $conditions = array();
         $conditions2 = array();
 
@@ -61,8 +62,31 @@ class searchresult
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         while ($result = $stmt->fetch()){
             $this->queryResult = $result;
+            $car_id = $this->queryResult['id'];
+            $stmt_in = $this->db->prepare("SELECT image FROM car__search_images WHERE car_id='$car_id'");
+            $stmt_in->execute();
+            $stmt_in->setFetchMode(PDO::FETCH_ASSOC);
+            while($res = $stmt_in->fetch()){
+                $this->carImages = $res;
+            }
             return true;
         }
+    }
+
+    //formate car price for details.php page
+    public function moneyconv()
+    {
+        $amount = $this->queryResult['price'];
+        $len = strlen($amount);
+        $m = '';
+        $money = strrev($amount);
+        for($i=0;$i<$len;$i++){
+            if(( $i==3 || ($i>3 && ($i-1)%2==0) )&& $i!=$len){
+                $m .=',';
+            }
+            $m .=$money[$i];
+        }
+        echo strrev($m);
     }
 
 }
