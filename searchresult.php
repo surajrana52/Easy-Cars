@@ -1,3 +1,17 @@
+<?php
+require ('php/classes/searchresult.class.php');
+var_dump($_POST);
+if (isset($_POST['findmycar'])) {
+	$manufacturer = $_POST['car_manufacturer'];
+	$fuel_type = $_POST['fuel_type'];
+	$millage = $_POST['millage'];
+	$transmission = $_POST['transmission'];
+	$displacement = $_POST['displacement'];
+	$budget = $_POST['budget'];
+
+	
+}
+?>
 <html>
 <head>
     <title>Search Result | Easy Cars</title>

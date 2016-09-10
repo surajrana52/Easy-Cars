@@ -104,13 +104,13 @@
 		
 		<section class="b-search">
 			<div class="container">
-				<form action="searchresult.php" method="GET" class="b-search__main">
+				<form action="searchresult.php" method="POST" class="b-search__main">
 					<div class="b-search__main-title wow zoomInUp" data-wow-delay="0.3s">
 						<h2>UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE</h2>
 					</div>
 					<div class="b-search__main-type wow zoomInUp" data-wow-delay="0.3s">
 						<div class="col-xs-12 col-md-2 s-noLeftPadding">
-							<h4>Select vehicle type</h4>
+							<h4>Select vehicle type*</h4>
 						</div>
 						<div class="col-xs-12 col-md-10">
 							<div class="row">
@@ -349,15 +349,15 @@
 								<div class="m-firstSelects">
 									<div class="col-xs-4">
 										<select name="car_manufacturer" required>
-											<option value="" selected="">Any Make</option>
-											<option value="marutisuzuki" selected="">Maruti Suzuki</option>
+											<option value="" selected>Any Make</option>
+											<option value="marutisuzuki">Maruti Suzuki</option>
 										</select>
 										<span class="fa fa-caret-down"></span>
 										<p>ENTER MANUFACTURER*</p>
 									</div>
 									<div class="col-xs-4">
 										<select name="fuel_type" required>
-											<option value="" selected="">FUEL</option>
+											<option value="" selected>FUEL</option>
 											<option value="petrol">PETROL</option>
 											<option value="diesel">DIESEL</option>											
 										</select>
@@ -366,10 +366,10 @@
 									</div>
 									<div class="col-xs-4">
 										<select name="millage">
-											<option value="" selected="">MILLAGE</option>
-											<option value="15" selected="">Above 15 KMPL</option>
-											<option value="18" selected="">Above 18 KMPL</option>
-											<option value="20" selected="">Above 20 KMPL</option>											
+											<option value="" selected>MILLAGE</option>
+											<option value="15">Above 15 KMPL</option>
+											<option value="18">Above 18 KMPL</option>
+											<option value="20">Above 20 KMPL</option>											
 										</select>
 										<span class="fa fa-caret-down"></span>
 										<p>EXPECTED MILLAGE</p>
@@ -405,7 +405,7 @@
 									<input type="hidden" name="budget" class="j-min" value="200000"/>									
 								</div>
 								<div class="b-search__main-form-submit">									
-									<button type="submit" class="btn m-btn">Find my Car <span class="fa fa-angle-right"></span></button>
+									<button type="submit" name="findmycar" value="findclicked" class="btn m-btn">Find my Car <span class="fa fa-angle-right"></span></button>
 								</div>
 							</div>
 						</div>
