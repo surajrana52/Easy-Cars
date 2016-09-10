@@ -115,8 +115,8 @@ if (!empty($_GET)){
 						</div>
 						<div class="col-sm-3 col-xs-12">
 							<div class="b-detail__head-price">
-								<div class="b-detail__head-price-num"><?php $obj->moneyconv(); ?></div>
-								<p>Included Taxes &amp; Checkup</p>
+								<div class="b-detail__head-price-num">Rs.<?php $obj->moneyconv(); ?></div>
+								<p>Please Check On Road Price with Dealer</p>
 							</div>
 						</div>
 					</div>

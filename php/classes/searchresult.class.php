@@ -16,7 +16,7 @@ class searchresult
 
     public function createQuery($cartype,$manufacturer,$fuel_type,$millage,$transmission,$displacement,$budget){
 
-        $query = "SELECT id,manufacturer,model,millage,price,fuel_type,description FROM car_details";
+        $query = "SELECT id,manufacturer,model,millage,price,fuel_type,description,transmission,displacement,exterior_color FROM car_details";
         $conditions = array();
         $conditions2 = array();
 
@@ -73,7 +73,7 @@ class searchresult
         }
     }
 
-    //formate car price for details.php page
+    //formate car price for searchresult page
     public function moneyconv()
     {
         $amount = $this->queryResult['price'];
@@ -87,6 +87,12 @@ class searchresult
             $m .=$money[$i];
         }
         echo strrev($m);
+    }
+
+    //show description with '...' included at the end
+    public function descCut($varibale){
+
+        echo substr($varibale, 0, 200).((strlen($varibale) > 200) ? '...' : '');
     }
 
 }

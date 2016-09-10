@@ -126,19 +126,19 @@ if (isset($_POST['findmycar'])) {
 										<span>Rs.<?php $obj->moneyconv(); ?></span>
 									</header>
 									<p>
-										
+										<?php $obj->descCut($data2['description']) ?>
 									</p>
 									<div class="b-items__cars-one-info-km">
-										<span class="fa fa-tachometer"></span> 31,730 KM
+										<span class="fa fa-tachometer"></span> <?php echo $data2['fuel_type']?>
 									</div>
 									<div class="b-items__cars-one-info-details">
 										<div class="b-featured__item-links">
-											<a href="#">Registered 2015</a>
-											<a href="#">Used</a>
-											<a href="#">8-Speed Automatic</a>
-											<a href="#">Petrol</a>
+											<a href="javascript:void(0);"><?php echo $data2['millage']?> KMPL</a>
+											<a href="javascript:void(0);"><?php echo strtoupper($data2['transmission']) ?></a>
+											<a href="javascript:void(0);"><?php echo $data2['displacement']?> CC</a>
+											<a href="javascript:void(0);"><?php echo strtoupper($data2['exterior_color']) ?></a>
 										</div>
-										<a href="detail.html" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
+										<a href="details.php?carid=<?php echo $data2['id'];?>" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
 									</div>
 								</div>
 							</div>
