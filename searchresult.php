@@ -116,7 +116,7 @@ if (isset($_POST['findmycar'])) {
 									<img src="<?php echo $data3['image'] ?>" />
 									<a data-toggle="modal" data-target="#myModal" href="#"></a>									
 									<form>
-										<input type="checkbox" name="check1" id='check1'/>
+										<input type="checkbox" name="check1" id='check1' title="Add To Compare"/>
 										<label for="check1" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
 									</form>
 								</div>
@@ -138,7 +138,7 @@ if (isset($_POST['findmycar'])) {
 											<a href="javascript:void(0);"><?php echo $data2['displacement']?> CC</a>
 											<a href="javascript:void(0);"><?php echo strtoupper($data2['exterior_color']) ?></a>
 										</div>
-										<a href="details.php?carid=<?php echo $data2['id'];?>" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
+										<a href="details.php?carid=<?php echo $data2['id'];?>" target="_blank" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
 									</div>
 								</div>
 							</div>
@@ -161,43 +161,43 @@ if (isset($_POST['findmycar'])) {
 								<form>
 									<div class="b-items__aside-main-body">
 										<div class="b-items__aside-main-body-item">
-											<label>SELECT A MAKE</label>
+											<label>CAR TYPE</label>
 											<div>
 												<select name="select1" class="m-select">
-													<option value="" selected="">Any Make</option>
+													<option value="" selected="">Car Type</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
-											<label>SELECT A MODEL</label>
+											<label>MANUFACTURER</label>
 											<div>
 												<select name="select1" class="m-select">
-													<option value="" selected="">Any Make</option>
+													<option value="" selected="">Manufacturer</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
-											<label>PRICE RANGE</label>
+											<label>BUDGET</label>
 											<div class="slider"></div>
 											<input type="hidden" name="min" value="100" class="j-min" />
 											<input type="hidden" name="max" value="1000" class="j-max" />
 										</div>
 										<div class="b-items__aside-main-body-item">
-											<label>VEHICLE TYPE</label>
+											<label>MILLAGE</label>
 											<div>
 												<select name="select1" class="m-select">
-													<option value="" selected="">Any Type</option>
+													<option value="" selected="">Millage</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
-											<label>VEHICLE STATUS</label>
+											<label>TRANSMISSION</label>
 											<div>
 												<select name="select1" class="m-select">
-													<option value="" selected="">Any Status</option>
+													<option value="" selected="">Transmission</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
@@ -206,7 +206,16 @@ if (isset($_POST['findmycar'])) {
 											<label>FUEL TYPE</label>
 											<div>
 												<select name="select1" class="m-select">
-													<option value="" selected="">All Fuel Types</option>
+													<option value="" selected="">Fuel Types</option>
+												</select>
+												<span class="fa fa-caret-down"></span>
+											</div>
+										</div>
+										<div class="b-items__aside-main-body-item">
+											<label>DISPLACEMENT</label>
+											<div>
+												<select name="select1" class="m-select">
+													<option value="" selected="">Engine</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
