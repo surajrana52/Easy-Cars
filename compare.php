@@ -1,6 +1,10 @@
 <?php
 require ('php/classes/compare.class.php');
-
+if(!empty($_GET)){
+    $car_one = $_GET['carid_one'];
+    $car_two = $_GET['carid_two'];
+    
+}
 ?>
 <html>
 <head>

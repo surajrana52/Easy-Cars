@@ -10,6 +10,7 @@ class details
     public $getFeatures_array;
     public $ajaxSubGen_result;
     public $ajaxSubTest_result;
+    public $getSpec_result;
 
     public function __construct($DB_con)
     {
@@ -69,6 +70,17 @@ class details
         while ($res2 = $stmt->fetchColumn()) {
             $myArray = explode(",",$res2);
             $this->getFeatures_array = $myArray;
+            return true;
+        }
+    }
+
+    public function getSpecs(){
+        $carid = $this->result['id'];
+        $stmt = $this->db->prepare("SELECT * FROM car_specifications WHERE car_id='" . $carid . "'");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        while ($res3 = $stmt->fetch()) {
+            $this->getSpec_result = $res3;
             return true;
         }
     }

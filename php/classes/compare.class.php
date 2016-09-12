@@ -9,6 +9,10 @@ class compare{
     {
         $this->db = $DB_con;
     }
+    
+    public function getCars(){
+        
+    }
 }
 
 $obj = new compare($DB_con);

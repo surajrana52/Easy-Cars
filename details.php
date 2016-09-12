@@ -13,6 +13,10 @@ if (!empty($_GET)){
         $data3 = $obj->getFeatures_array;
     }
 
+    if($obj->getSpecs()){
+        $data4 = $obj->getSpec_result;
+    }
+
 }else{
 	//header('Location: index.html');
 }
@@ -85,25 +89,7 @@ if (!empty($_GET)){
 				<a href="index.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="listings.html" class="b-breadCumbs__page">Luxury Cars</a>
 			</div>
 		</div><!--b-breadCumbs-->
-		
-		<div class="b-infoBar">
-			<div class="container">
-				<div class="row wow zoomInUp" data-wow-delay="0.5s">
-					<div class="col-xs-3">						
-					</div>
-					<div class="col-xs-9">
-						<div class="b-infoBar__btns">
-							<a href="#" class="btn m-btn m-infoBtn">SHARE THIS VEHICLE<span class="fa fa-angle-right"></span></a>
-							<a href="#" class="btn m-btn m-infoBtn">PRINT THIS PAGE<span class="fa fa-angle-right"></span></a>
-							<a href="#" class="btn m-btn m-infoBtn">ADD TO Compare<span class="fa fa-angle-right"></span></a>
-							<a href="#" class="btn m-btn m-infoBtn">DOWNLOAD brochure<span class="fa fa-angle-right"></span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--b-infoBar-->
-		
-		
+
 		<section class="b-detail s-shadow">
 			<div class="container">
 			<header class="b-detail__head s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
@@ -266,6 +252,127 @@ if (!empty($_GET)){
 									</div>
 								</div>
 								
+								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
+									<div class="b-compare__block-title s-whiteShadow m-active">
+										<h3 class="s-titleDet" style="margin-top:-0px;">Full Specification</h3>
+										<a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
+									</div>
+									<div class="b-compare__block-inside j-inside m-active">
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												TOP SPEED
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+												<?php echo $data4['top_speed'] ?> KMPH
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Acceleration (0-100 kmph)
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['acceleration'] ?> Seconds
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Engine Displacement
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['eng_displace'] ?> CC
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Engine Description
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['eng_discrip'] ?> Engine
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Maximum Power
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['max_power'] ?>
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Maximum Torque
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['max_torque'] ?>
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Gear Box
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['gear_box'] ?> Speed
+											</div>
+										</div>										
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-title">
+												Gross Weight
+											</div>
+										</div>
+										<div class="col-xs-3">											
+										</div>
+										<div class="col-xs-3">
+											<div class="b-compare__block-inside-value">
+                                                <?php echo $data4['gross wieght'] ?> KG
+											</div>
+										</div>										
+									</div>
+								</div>
+								</div>
+								
 								 <div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">Video Review</h2>
 									<div class="row">
@@ -276,7 +383,7 @@ if (!empty($_GET)){
 								</div>
 								
 								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
-									<h2 class="s-titleDet">Car Is Available With</h2>
+									<h2 class="s-titleDet">This Car Is Available With</h2>
 									<div class="row">
 									<div class="col-md-4">
 									<iframe width="680" height="390" frameborder="0" style="border:0" 
