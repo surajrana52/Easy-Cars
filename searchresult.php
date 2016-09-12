@@ -1,6 +1,5 @@
 <?php
 require ('php/classes/searchresult.class.php');
-var_dump($_POST);
 if (isset($_POST['findmycar'])) {
     $cartype = $_POST['cartype'];
 	$manufacturer = $_POST['car_manufacturer'];
@@ -13,12 +12,8 @@ if (isset($_POST['findmycar'])) {
     if ($obj->createQuery($cartype,$manufacturer,$fuel_type,$millage,$transmission,$displacement,$budget)){
 
         $data= $obj->output;
-        $data2 =$obj->queryResult;
-        $data3 =$obj->carImages;
+        $data2 = $obj->queryResult;
     }
-    echo $data;
-    print_r($data2);
-    print_r($data3);
 }
 ?>
 <html>
@@ -80,7 +75,7 @@ if (isset($_POST['findmycar'])) {
 
 <section class="b-pageHeader">
 			<div class="container">
-				<h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Auto Listings</h1>
+				<h1 class=" wow zoomInLeft" data-wow-delay="0.5s">EASY CARS LISTINGS</h1>
 				<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
 					<h3>Your search results</h3>
 				</div>
@@ -99,7 +94,7 @@ if (isset($_POST['findmycar'])) {
 				<div class="row">
 					<div class="col-lg-4 col-xs-12">
 						<div class="b-infoBar__compare wow zoomInUp" data-wow-delay="0.5s">							
-							<a href="compare.html" class="b-infoBar__compare-item"><span class="fa fa-compress"></span>COMPARE VEHICLES:</a>
+							<a id="compareurl" href="" target="_blank" class="b-infoBar__compare-item"><span class="fa fa-compress"></span>COMPARE VEHICLES:</a>
 						</div>
 					</div>					
 				</div>
@@ -111,37 +106,98 @@ if (isset($_POST['findmycar'])) {
 				<div class="row">
 					<div class="col-lg-9 col-sm-8 col-xs-12">
 						<div class="b-items__cars">
-							<div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
-								<div class="b-items__cars-one-img">
-									<img src="<?php echo $data3['image'] ?>" />
-									<a data-toggle="modal" data-target="#myModal" href="#"></a>									
-									<form>
-										<input type="checkbox" name="check1" id='check1' title="Add To Compare"/>
-										<label for="check1" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
-									</form>
-								</div>
-								<div class="b-items__cars-one-info">
-									<header class="b-items__cars-one-info-header s-lineDownLeft">
-										<h2><?php echo strtoupper($data2['manufacturer'].' '.$data2['model']); ?></h2>
-										<span>Rs.<?php $obj->moneyconv(); ?></span>
-									</header>
-									<p>
-										<?php $obj->descCut($data2['description']) ?>
-									</p>
-									<div class="b-items__cars-one-info-km">
-										<span class="fa fa-tachometer"></span> <?php echo $data2['fuel_type']?>
-									</div>
-									<div class="b-items__cars-one-info-details">
-										<div class="b-featured__item-links">
-											<a href="javascript:void(0);"><?php echo $data2['millage']?> KMPL</a>
-											<a href="javascript:void(0);"><?php echo strtoupper($data2['transmission']) ?></a>
-											<a href="javascript:void(0);"><?php echo $data2['displacement']?> CC</a>
-											<a href="javascript:void(0);"><?php echo strtoupper($data2['exterior_color']) ?></a>
-										</div>
-										<a href="details.php?carid=<?php echo $data2['id'];?>" target="_blank" class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
-									</div>
-								</div>
-							</div>
+                            <?php
+                            if (count($data2) >1) {
+                                $counter =1;
+                                foreach ($data2 as $keys => $value1) {
+                                    ?>
+                                    <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="b-items__cars-one-img">
+                                            <img src="<?php $obj->getCarImages($value1['id']) ?>"/>
+                                            <a data-toggle="modal" data-target="#myModal" href="#"></a>
+                                            <form>
+                                                <input type="checkbox" id="check<?php echo $counter?>" value="<?php echo $value1['id']; ?>"/>
+                                                <label for="check<?php echo $counter?>" class="b-items__cars-one-img-check"><span class="fa fa-check"></span></label>
+                                            <?php $counter++; ?>
+                                            </form>
+                                        </div>
+                                        <div class="b-items__cars-one-info">
+                                            <header class="b-items__cars-one-info-header s-lineDownLeft">
+                                                <h2><?php echo strtoupper($value1['manufacturer'] . ' ' . $value1['model']); ?></h2>
+                                                <span>Rs.<?php $obj->moneyconv($value1['price']); ?></span>
+                                            </header>
+                                            <p>
+                                                <?php $obj->descCut($value1['description']) ?>
+                                            </p>
+                                            <div class="b-items__cars-one-info-km">
+                                                <span
+                                                    class="fa fa-tachometer"></span> <?php echo $value1['fuel_type'] ?>
+                                            </div>
+                                            <div class="b-items__cars-one-info-details">
+                                                <div class="b-featured__item-links">
+                                                    <a href="javascript:void(0);"><?php echo $value1['millage'] ?>
+                                                        KMPL</a>
+                                                    <a href="javascript:void(0);"><?php echo strtoupper($value1['transmission']) ?></a>
+                                                    <a href="javascript:void(0);"><?php echo $value1['displacement'] ?>
+                                                        CC</a>
+                                                    <a href="javascript:void(0);"><?php echo strtoupper($value1['exterior_color']) ?></a>
+                                                </div>
+                                                <a href="details.php?carid=<?php echo $value1['id']; ?>" target="_blank"
+                                                   class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }elseif(count($data2)<1){
+                                    ?>
+                                <div class="col-sm-9 col-xs-12">
+                                    <div class="b-detail__head-title">
+                                        <h1>NO RECORD FOUND</h1>
+                                    </div>
+                                    <br>
+                                </div>
+                            <?php
+                            }else {
+                                ?>
+                                <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
+                                    <div class="b-items__cars-one-img">
+                                        <img src="<?php $obj->getCarImages($data2['id']) ?>"/>
+                                        <a data-toggle="modal" data-target="#myModal" href="#"></a>
+                                        <form>
+                                         <label class="b-items__cars-one-img-check"><span class="fa fa-check" title="Add To Compare"></span>
+                                             <input type="checkbox" name="check1" title="Add To Compare"/>
+                                         </label>
+                                        </form>
+                                    </div>
+                                    <div class="b-items__cars-one-info">
+                                        <header class="b-items__cars-one-info-header s-lineDownLeft">
+                                            <h2><?php echo strtoupper($data2['manufacturer'] . ' ' . $data2['model']); ?></h2>
+                                            <span>Rs.<?php $obj->moneyconv($data2['price']); ?></span>
+                                        </header>
+                                        <p>
+                                            <?php $obj->descCut($data2['description']) ?>
+                                        </p>
+                                        <div class="b-items__cars-one-info-km">
+                                            <span class="fa fa-tachometer"></span> <?php echo $data2['fuel_type'] ?>
+                                        </div>
+                                        <div class="b-items__cars-one-info-details">
+                                            <div class="b-featured__item-links">
+                                                <a href="javascript:void(0);"><?php echo $data2['millage'] ?>
+                                                    KMPL</a>
+                                                <a href="javascript:void(0);"><?php echo strtoupper($data2['transmission']) ?></a>
+                                                <a href="javascript:void(0);"><?php echo $data2['displacement'] ?>
+                                                    CC</a>
+                                                <a href="javascript:void(0);"><?php echo strtoupper($data2['exterior_color']) ?></a>
+                                            </div>
+                                            <a href="details.php?carid=<?php echo $data2['id']; ?>" target="_blank"
+                                               class="btn m-btn">VIEW DETAILS<span class="fa fa-angle-right"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            ?>
 						</div>
 						<div class="b-items__pagination wow zoomInUp" data-wow-delay="0.5s">
 							<div class="b-items__pagination-main">
@@ -295,4 +351,49 @@ if (isset($_POST['findmycar'])) {
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.placeholder.min.js"></script>
 		<script src="assets/js/theme.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $('#compareurl').bind('click', function(e){
+            e.preventDefault();
+        });
+        if ($('input[type=checkbox]:checked').length == 2){
+            $('#compareurl').html('COMPARE NOW : 2 CARS');
+        }else if($('input[type=checkbox]:checked').length == 1){
+            $('#compareurl').html('COMPARE (SELECT ONE MORE CAR) : 1 CARS');
+        }else{
+            $('#compareurl').html('COMPARE (SELECT CARS): 0 CARS');
+        }
+    });
+    var $checkboxes;
+    $('input[type=checkbox]').on('click', function (e) {
+        if ($('input[type=checkbox]:checked').length != 2){
+            $('#compareurl').bind('click', function(e){
+                e.preventDefault();
+            });
+        }
+        if ($('input[type=checkbox]:checked').length == 2){
+            $('#compareurl').html('COMPARE NOW : 2 CARS');
+            $('#compareurl').unbind('click');
+        }else if($('input[type=checkbox]:checked').length == 1){
+            $('#compareurl').html('COMPARE (SELECT ONE MORE CAR) : 1 CARS');
+        }else{
+            $('#compareurl').html('COMPARE (SELECT CARS) : 0 CARS');
+        }
+
+        if ($('input[type=checkbox]:checked').length <= 2){
+            $checkboxes = $('input:checkbox').change(storeuser);
+        }
+        if ($('input[type=checkbox]:checked').length > 2) {
+            $(this).prop('checked', false);
+            alert("allowed only 2");
+        }
+    });
+    function storeuser() {
+        var users = $checkboxes.map(function() {
+            if(this.checked) return this.value;
+        }).get().join('&carid_two=');
+        $("#compareurl").attr("href", "compare.php?compare.php?carid_one="+users)
+    }
+</script>
 		</html>

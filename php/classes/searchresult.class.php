@@ -7,7 +7,6 @@ class searchresult
     private $db;
     public $output;
     public $queryResult;
-    public $carImages;
 
     public function __construct($DB_con)
     {
@@ -33,13 +32,13 @@ class searchresult
             $conditions[] = "price >= '$budget'";
         }
         if (!empty($millage)){
-            $conditions2[] = "millage >= '$millage'";
+            $conditions2[] = "( millage >= '$millage'";
         }
         if (!empty($transmission)){
             $conditions2[] = "transmission='$transmission'";
         }
         if (!empty($displacement)){
-            $conditions2[] = "displacement > '$displacement'";
+            $conditions2[] = "displacement >= '$displacement' ) ";
         }
 
         $sql = $query;
@@ -48,35 +47,42 @@ class searchresult
         }
         if (count($conditions2)>0){
             $sql .=" AND ".implode(' OR ',$conditions2);
+            //$sql .="ORDER BY id desc";
         }
 
         $this->advanceSearch($sql);
         return true;
     }
 
-    public function advanceSearch($sql){
-
+    public function advanceSearch($sql)
+    {
         $this->output = $sql;
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        while ($result = $stmt->fetch()){
+        while ($result = $stmt->fetchAll()) {
             $this->queryResult = $result;
-            $car_id = $this->queryResult['id'];
-            $stmt_in = $this->db->prepare("SELECT image FROM car__search_images WHERE car_id='$car_id'");
-            $stmt_in->execute();
-            $stmt_in->setFetchMode(PDO::FETCH_ASSOC);
-            while($res = $stmt_in->fetch()){
-                $this->carImages = $res;
-            }
             return true;
         }
     }
 
+    public function getCarImages($carid){
+        $car_id = $carid;
+        $stmt_in = $this->db->prepare("SELECT image FROM car_search_images WHERE car_id='$car_id'");
+        $stmt_in->execute();
+        $stmt_in->setFetchMode(PDO::FETCH_ASSOC);
+        while ($res = $stmt_in->fetchAll()) {
+            foreach ($res as $key => $value){
+                echo $value['image'];
+            }
+        return true;
+        }
+    }
+
     //formate car price for searchresult page
-    public function moneyconv()
+    public function moneyconv($amount)
     {
-        $amount = $this->queryResult['price'];
+        //$amount = $this->queryResult['price'];
         $len = strlen($amount);
         $m = '';
         $money = strrev($amount);
