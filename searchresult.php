@@ -393,7 +393,7 @@ if (isset($_POST['findmycar'])) {
         var users = $checkboxes.map(function() {
             if(this.checked) return this.value;
         }).get().join('&carid_two=');
-        $("#compareurl").attr("href", "compare.php?compare.php?carid_one="+users)
+        $("#compareurl").attr("href", "compare.php?carid_one="+users)
     }
 </script>
 		</html>

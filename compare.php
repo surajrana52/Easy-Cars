@@ -3,7 +3,13 @@ require ('php/classes/compare.class.php');
 if(!empty($_GET)){
     $car_one = $_GET['carid_one'];
     $car_two = $_GET['carid_two'];
-    
+
+    if($obj->getCarsIdOne($car_one)){
+        $data = $obj->getCarsIdOne_result;
+    }
+    if($obj->getCarsIdTwo($car_two)){
+        $data2 = $obj->getCarsIdTwo_result;
+    }
 }
 ?>
 <html>
@@ -95,446 +101,201 @@ if(!empty($_GET)){
             <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-12 col-md-offset-3">
                     <div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Jaguar XJ 2015</h3>
-                        <img class="img-responsive center-block" src="" alt="jaguar"/>
+                        <h3><?php echo $data['model']; ?></h3>
+                        <img class="img-responsive center-block" src="<?php echo $obj->getCarImage($car_one) ?>" alt="<?php echo $data['model']?>"/>
                         <div class="b-compare__images-item-price m-right">
                             <div class="b-compare__images-item-price-vs">vs</div>
-                            $90,600
+                            Rs.<?php $obj->moneyconv($data['price']); ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12 ">
                     <div class="b-compare__images-item s-lineDownCenter wow zoomInUp" data-wow-delay="0.3s">
-                        <h3>Mercedes E-Class 2015</h3>
-                        <img class="img-responsive center-block" src="" alt="merc"/>
-                        <div class="b-compare__images-item-price m-right m-left">$52,650</div>
+                        <h3><?php echo $data2['model'] ?></h3>
+                        <img class="img-responsive center-block" src="<?php echo $obj->getCarImage($car_two)?>" alt="<?php echo $data2['model']?>"/>
+                        <div class="b-compare__images-item-price m-right m-left">Rs.<?php $obj->moneyconv($data2['price']); ?></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
-            <div class="b-compare__block-title s-whiteShadow">
+            <div class="b-compare__block-title s-whiteShadow m-active">
                 <h3 class="s-titleDet">BASIC INFO</h3>
                 <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
             </div>
-            <div class="b-compare__block-inside j-inside">
+            <div class="b-compare__block-inside j-inside m-active">
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-title">
-                            Make / Year
+                            TOP SPEED
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            Jaugar 2015
+                            <?php echo $data['top_speed'] ?> KMPH
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            Mercedez-Benz 2015
+                            <?php echo $data2['top_speed'] ?> KMPH
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-title">
-                            Front Head Room
+                            Acceleration (0-100 kmph)
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            39.5 in
+                            <?php echo $data['acceleration'] ?> Seconds
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            38.0 in
+                            <?php echo $data2['acceleration'] ?> Seconds
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-title">
-                            Width / Height / Length
+                            Engine Displacement
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            74.8 in / 57.3 in / 201.9 in
+                            <?php echo $data['eng_displace'] ?> CC
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            73.0 in / 57.0 in / 192.5 in
+                            <?php echo $data2['eng_displace'] ?> CC
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-title">
-                            Wheel Base
+                            Engine Description
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            119.0 in
+                            <?php echo $data['eng_discrip'] ?> Engine
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            113.5 in
+                            <?php echo $data2['eng_discrip'] ?> Engine
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-title">
-                            Cargo capacity, all seats in place
+                            Maximum Power
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            15.2 cu.ft.
+                            <?php echo $data['max_power'] ?>
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value">
-                            12.9 cu.ft.
+                            <?php echo $data2['max_power'] ?>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-title">
+                            Maximum Torque
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-value">
+                            <?php echo $data['max_torque'] ?>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-value">
+                            <?php echo $data2['max_torque'] ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-title">
+                            Gear Box
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-value">
+                            <?php echo $data['gear_box'] ?> Speed
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-value">
+                            <?php echo $data2['gear_box'] ?> Speed
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-title">
+                            Gross Weight
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-value">
+                            <?php echo $data['gross wieght'] ?> KG
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-value">
+                            <?php echo $data2['gross wieght'] ?> KG
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
-            <div class="b-compare__block-title s-whiteShadow">
-                <h3 class="s-titleDet">MECHANICAL FEATURES</h3>
-                <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
-            </div>
-            <div class="b-compare__block-inside j-inside">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Base Engine / Cylinders
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            5.0 L / V8
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            201 L / Inline 4
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Fuel Capacity / Type
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            21.7 gal. / Flex-fuel
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            21.1 gal. / Diesel fuel
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Fuel Economy (city / hwy)
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            15 / 23 mpg
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            28 / 42 mpg
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Horsepower
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            470 hp @ 6000 rpm
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            195 hp @ 3800 rpm
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Transmission
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            8-speed shiftable automatic
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            7-speed shiftable automatic
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
-            <div class="b-compare__block-title s-whiteShadow">
-                <h3 class="s-titleDet">WARRANTY FEATURES</h3>
-                <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
-            </div>
-            <div class="b-compare__block-inside j-inside">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Fuel Economy (city / hwy)
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            15 / 23 mpg
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            28 / 42 mpg
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Horsepower
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            470 hp @ 6000 rpm
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            195 hp @ 3800 rpm
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Transmission
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            8-speed shiftable automatic
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            7-speed shiftable automatic
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
-            <div class="b-compare__block-title s-whiteShadow">
-                <h3 class="s-titleDet">EXTERIOR / INTERIOR FEATURES</h3>
-                <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
-            </div>
-            <div class="b-compare__block-inside j-inside">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            All Season Tires
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Optional
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Power Glass Sunroof
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Tire Size
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            275/35R20 102Y tires
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            245/45R17 tires
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Wheels
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Painted alloy wheels
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Alloy wheels
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            A/C With Climate Control
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Built-in Hard Drive
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Optional
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            HD Radio
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-title">
-                            Heated / Cooled Seats
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Standard
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="b-compare__block-inside-value">
-                            Optional
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
-            <div class="b-compare__block-title s-whiteShadow">
+            <div class="b-compare__block-title s-whiteShadow m-active">
                 <h3 class="s-titleDet">OTHER OPTIONS</h3>
                 <a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
             </div>
-            <div class="b-compare__block-inside j-inside">
+            <div class="b-compare__block-inside j-inside m-active">
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-title">
-                            Misc. Options
+                            Fetures
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value s-lineDownCenter">
                             <ul>
-                                <li><span class="fa fa-check"></span>Security System</li>
-                                <li><span class="fa fa-check"></span>Air Conditioning</li>
-                                <li><span class="fa fa-check"></span>Alloy Wheels</li>
-                                <li><span class="fa fa-check"></span>Anti-Lock Brakes (ABS)</li>
-                                <li><span class="fa fa-check"></span>Anti-Theft</li>
-                                <li><span class="fa fa-check"></span>Anti-Starter</li>
+                                <?php
+                                $features_array = $obj->getFeatures($data['extra_features']);
+                                foreach ($features_array as $key => $value){
+                                    echo '<li><span class="fa fa-check"></span>'.$value.'</li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xs-3">
                         <div class="b-compare__block-inside-value s-lineDownCenter">
                             <ul>
-                                <li><span class="fa fa-check"></span>Security System</li>
-                                <li><span class="fa fa-check"></span>Air Conditioning</li>
-                                <li><span class="fa fa-check"></span>Alloy Wheels</li>
-                                <li><span class="fa fa-check"></span>Anti-Lock Brakes (ABS)</li>
-                                <li><span class="fa fa-check"></span>Anti-Theft</li>
-                                <li><span class="fa fa-check"></span>Anti-Starter</li>
-                                <li><span class="fa fa-check"></span>CD Player</li>
+                                <?php
+                                $features_array = $obj->getFeatures($data2['extra_features']);
+                                foreach ($features_array as $key => $value){
+                                    echo '<li><span class="fa fa-check"></span>'.$value.'</li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -544,10 +305,10 @@ if(!empty($_GET)){
         <div class="b-compare__links wow zoomInUp" data-wow-delay="0.3s">
             <div class="row">
                 <div class="col-sm-3 col-xs-12 col-sm-offset-3">
-                    <a href="" class="btn m-btn">VIEW LISTINGS<span class="fa fa-angle-right"></span></a>
+                    <a href="details.php?carid=<?php echo $car_one;?>" target="_blank" class="btn m-btn">VIEW LISTING<span class="fa fa-angle-right"></span></a>
                 </div>
                 <div class="col-sm-3 col-xs-12">
-                    <a href="" class="btn m-btn">VIEW LISTINGS<span class="fa fa-angle-right"></span></a>
+                    <a href="details.php?carid=<?php echo $car_two; ?>" target="_blank" class="btn m-btn">VIEW LISTING<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
         </div>

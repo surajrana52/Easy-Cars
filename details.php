@@ -254,7 +254,7 @@ if (!empty($_GET)){
 								
 								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
 									<div class="b-compare__block-title s-whiteShadow m-active">
-										<h3 class="s-titleDet" style="margin-top:-0px;">Full Specification</h3>
+										<h3 class="s-titleDet" style="margin-top:-0px;">Car Specification</h3>
 										<a class="j-more" href="#"><span class="fa fa-angle-left"></span></a>
 									</div>
 									<div class="b-compare__block-inside j-inside m-active">
