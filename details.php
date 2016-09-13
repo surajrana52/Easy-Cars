@@ -1,7 +1,12 @@
 <?php
 require ('php/classes/details.class.php');
 if (!empty($_GET)){
-	$carid=$_GET['carid'];
+
+    if(filter_var($_GET['carid'], FILTER_VALIDATE_INT) && (!empty($_GET['carid']))){
+        $carid = $_GET['carid'];
+    }else{
+        $carid = 0;
+    }
 
     if ($obj->validate($carid)) {
         if ($obj->getDetails($carid)) {

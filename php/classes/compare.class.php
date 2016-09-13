@@ -6,10 +6,33 @@ class compare{
     private $db;
     public $getCarsIdOne_result;
     public $getCarsIdTwo_result;
+    public $compare_validate;
 
     public function __construct($DB_con)
     {
         $this->db = $DB_con;
+    }
+
+    public function validate($variable1,$variable2){
+
+        $count =0;
+        $stmt = $this->db->prepare("SELECT( SELECT count(id) FROM car_details WHERE id =:carid1) AS count1,(SELECT count(id) FROM car_details WHERE id = :carid2) as count2;");
+        $stmt->execute(array(':carid1' => $variable1,':carid2' => $variable2));
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        while ($res = $stmt->fetch()) {
+             if($res['count1']==1){
+                 $count++;
+             }
+            if ($res['count2']==1){
+                $count++;
+            }
+            if($count ==2){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
     }
 
     //get details of car one

@@ -17,6 +17,7 @@ class details
         $this->db = $DB_con;
     }
 
+    //validate url parameters
     public function validate($variable){
 
         $stmt = $this->db->prepare("SELECT id FROM car_details WHERE id=:carid");
@@ -30,8 +31,8 @@ class details
             }
 
         }
-
     }
+
     //fetch details from database for details.php page
     public function getDetails($carid)
     {

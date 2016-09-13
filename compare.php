@@ -1,15 +1,33 @@
 <?php
 require ('php/classes/compare.class.php');
 if(!empty($_GET)){
-    $car_one = $_GET['carid_one'];
-    $car_two = $_GET['carid_two'];
 
+    if(filter_var($_GET['carid_one'], FILTER_VALIDATE_INT) && (!empty($_GET['carid_one']))){
+        $car_one = $_GET['carid_one'];
+    }else{
+        $car_one = 0;
+    }
+
+    if(filter_var($_GET['carid_two'], FILTER_VALIDATE_INT) && (!empty($_GET['carid_two']))){
+        $car_two = $_GET['carid_two'];
+    }else{
+        $car_two = 0;
+    }
+
+    if ($obj->validate($car_one,$car_two)){
     if($obj->getCarsIdOne($car_one)){
         $data = $obj->getCarsIdOne_result;
     }
     if($obj->getCarsIdTwo($car_two)){
         $data2 = $obj->getCarsIdTwo_result;
     }
+    }else{
+        header('Location: 404.html?invalidcar');
+        die();
+    }
+}else{
+    header('Location: index.html');
+    die();
 }
 ?>
 <html>
