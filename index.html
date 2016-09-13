@@ -806,10 +806,11 @@
 					<div class="col-xs-8">
 						<div class="b-contact__form">
 							<p>WE SEND GREAT DEALS AND LATEST AUTO NEWS TO OUR SUBSCRIBED USERS EVERY WEEK. ITS FREE SO SUBSCRIBE TODAY!</p>
-							<form action="http://html.templines.com/" method="POST">
-								<div><span class="fa fa-user"></span><input type="text" name="user" value="" placeholder="Your Name" /></div>
-								<div><span class="fa fa-envelope"></span><input type="text" name="email" value="" placeholder="Your Email" /></div>
-								<button type="button"><span class="fa fa-angle-right"></span></button>
+							<form id="form1-subsc" action="#" method="POST">
+								<div><span class="fa fa-user"></span><input type="text" name="name" placeholder="Your Name" required/></div>
+								<div><span class="fa fa-envelope"></span><input type="email" name="email" placeholder="Your Email" required /></div>
+								<input type="hidden" value="yes" name="subsc" />
+								<button type="submit" id="subscribe"><span class="fa fa-angle-right"></span></button>
 							</form>
 						</div>
 					</div>
@@ -871,4 +872,6 @@
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.placeholder.min.js"></script>
 		<script src="assets/js/theme.js"></script>
+		<script src="assets/js/sweetalert.min.js"></script>
+		<script src="assets/js/customfunc_index.js"></script>
 </html>

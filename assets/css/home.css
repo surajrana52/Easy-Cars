@@ -1387,6 +1387,27 @@ a.m-langLink{
     font: 400 13px 'Open Sans',sans-serif;
 }
 
+.b-contact__form input[type='email']{
+    background: transparent;
+    border:1px solid #555555;
+    padding: 10px 0 10px 40px;
+    border-radius: 30px;
+    width:340px;
+    font: 400 13px 'Open Sans',sans-serif;  
+}
+
+.b-contact__form input[type='email']:focus{
+    outline:none;
+}
+
+.b-contact__form input[type='email']::-webkit-input-placeholder {
+    font: 400 13px 'Open Sans',sans-serif;
+}
+
+.b-contact__form input[type='email']:-moz-placeholder {
+    font: 400 13px 'Open Sans',sans-serif;
+}
+
 .b-contact__form form > div{
     display: inline-block;
     position: relative;
