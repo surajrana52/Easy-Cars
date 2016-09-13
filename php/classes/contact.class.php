@@ -21,6 +21,20 @@ class contact{
             return false;
         }
     }
+
+    public function contactForm($name,$email,$phone,$massage){
+        $stmt = $this->db->prepare("INSERT INTO contact_enq (user_name,user_email,user_phone,user_massage) VALUES (:uname,:email,:phone,:massage)");
+        $stmt->bindValue(':uname', $name);
+        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':phone', $phone);
+        $stmt->bindValue(':massage',$massage);
+        if ($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
 
 $contact = new contact($DB_con);

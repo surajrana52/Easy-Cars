@@ -112,7 +112,7 @@ if (isset($_POST['findmycar'])) {
                                 $counter =1;
                                 foreach ($data2 as $keys => $value1) {
                                     ?>
-                                    <li style="display:none;">
+                                    <li style="display:none;list-style: none;">
                                     <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
                                         <div class="b-items__cars-one-img">
                                             <img src="<?php $obj->getCarImages($value1['id']) ?>"/>

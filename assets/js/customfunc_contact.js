@@ -1,24 +1,10 @@
-//fix Google Chrome not showing required validation for car type (CHROME BUG: Cant focus)
-
-function cartypevald() {
-    var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-    if (is_chrome) {
-        if (!$('[name="cartype"]').is(':checked')) {
-            swal("ERROR!", "You Forgot To Select Vehical Type", "warning");
-            return false;
-        }
-    }else {
-        return true;
-    }
-}
-
 //*used jquery here
 $(document).ready(function() {
-    var form = $('#form1-subsc'); //form to be submited
-    var submit = $('#subscribe'); //form submit button
+    var form = $('#contactForm'); //form to be submited
+    var submit = $('#subclicked'); //form submit button
 
     // form submit event
-    $("form#form1-subsc").submit(function(ev) {
+    $("form#contactForm").submit(function(ev) {
         ev.preventDefault();
 
         $.ajax({
@@ -31,7 +17,7 @@ $(document).ready(function() {
             },
             success: function(data) {
                 console.log(data);
-                swal("Subscribed", "Thank You for Subscribing!", "success")
+                swal("Thank You", "You Enquiry Has Been Received!", "success")
                 form.trigger('reset'); // reset form
                 submit.hide();
                 submit.prop("disabled", true);

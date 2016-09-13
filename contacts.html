@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Easy Cars</title>
+    <title>Contact | Easy Cars</title>
     <link href="assets/css/master.css" rel="stylesheet">
 </head>
 <body>
@@ -85,12 +85,13 @@
 							</header>
 							<p class=" wow zoomInUp" data-wow-delay="0.5s">Enter your comments through the form below, and our customer service professionals will contact you as soon as possible.</p>
 							<div id="success"></div>
-							<form id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">								
-								<input type="text" placeholder="YOUR NAME" value="" name="user-name" id="user-name" />
-								<input type="text" placeholder="EMAIL ADDRESS %" value="" name="user-email" id="user-email" />
-								<input type="text" placeholder="PHONE NO." value="" name="user-phone" id="user-phone" />
-								<textarea id="user-message" name="user-message" placeholder="COMMENT/SUGGESTIONS/FEEDBACK"></textarea>
-								<button type="submit" class="btn m-btn">SUBMIT NOW<span class="fa fa-angle-right"></span></button>
+							<form id="contactForm" action="#" method="post" class="s-form wow zoomInUp" data-wow-delay="0.5s">								
+								<input type="text" placeholder="YOUR NAME" name="user_name" required pattern="[A-Za-z\s]*" title="Alphabets only" />
+								<input type="email" placeholder="EMAIL ADDRESS" name="user_email" required />
+								<input type="text" placeholder="PHONE NO." name="user_phone" maxlength="10" pattern=".{10,10}" title="Enter 10 digit number" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
+								<textarea name="user_message" placeholder="COMMENT/SUGGESTIONS/FEEDBACK" required></textarea>
+								<input type="hidden" value="yes" name="contact" />
+								<button type="submit" id="subclicked" class="btn m-btn">SUBMIT NOW<span class="fa fa-angle-right"></span></button>
 							</form>
 						</div>
 					</div>
@@ -208,3 +209,21 @@
 				</div>
 			</div>
 		</footer><!--b-footer-->
+		<!--Main-->
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.custom.js"></script>
+<!-- -->
+<script src="assets/js/sweetalert.min.js"></script>
+<!--bxSlider-->
+		<script src="assets/plugins/bxslider/jquery.bxslider.js"></script>
+		<!-- jQuery UI Slider -->
+		<script src="assets/plugins/slider/jquery.ui-slider.js"></script>		
+		<script src="assets/js/jquery.smooth-scroll.js"></script>
+		<script src="assets/js/wow.min.js"></script>
+		<script src="assets/js/jquery.placeholder.min.js"></script>
+		<script src="assets/js/customfunc_contact.js"></script>
+		<script src="assets/js/theme.js"></script>		
+	</body>
+</html>

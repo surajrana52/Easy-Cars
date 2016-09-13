@@ -168,7 +168,16 @@ body{
     padding: 15px 20px;
     font: 400 10px 'Open Sans',sans-serif;
     border: 1px solid #eeeeee;
-    text-transform: uppercase;
+    border-radius: 30px;
+}
+
+.s-form input[type='email']{
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    font: 400 10px 'Open Sans',sans-serif;
+    border: 1px solid #eeeeee;    
     border-radius: 30px;
 }
 
@@ -177,7 +186,7 @@ body{
     margin-bottom: 20px;
 }
 
-.s-form input[type='text']:focus,.s-form textarea:focus{
+.s-form input[type='text']:focus,.s-form input[type='email']:focus,.s-form textarea:focus{
     outline:none;
 }
 

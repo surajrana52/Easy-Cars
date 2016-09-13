@@ -501,7 +501,7 @@ if (!empty($_GET)){
 										<form id="form1-one" action="#" method="post">
 											<input type="text" placeholder="YOUR NAME*" value="" name="user_name" pattern='[A-Za-z\\s]*' title="Alphabets only" required />
 											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
-											<input type="tel" maxlength="10" placeholder="Mobile No*" value="" name="mobile" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required/>
+											<input type="tel" maxlength="10" placeholder="Mobile No*" pattern=".{10,10}" title="Enter 10 digit number" name="mobile" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required/>
 											<textarea name="massage" placeholder="Your Message*" required></textarea>
 											<input type="hidden" value="yes" name="general_enq" />
 											<button type="submit" id="gebut" name="" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
@@ -509,7 +509,7 @@ if (!empty($_GET)){
 										<form id="form2" action="" method="post">
 											<input type="text" placeholder="YOUR NAME*" value="" name="user_name" pattern='[A-Za-z\\s]*' title="Alphabets only" required />
 											<input type="email" placeholder="EMAIL ADDRESS*" value="" name="email" required/>
-											<input type="text" placeholder="Mobile No*" value="" name="mobile" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required/>
+											<input type="text" placeholder="Mobile No*" maxlength="10" pattern=".{10,10}" title="Enter 10 digit number" name="mobile" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required/>
 											<input type="hidden" value="yes" name="test_drive" />
 											<button type="submit" id="stdbut" class="btn m-btn">SEND MESSAGE<span class="fa fa-angle-right"></span></button>
 										</form>
