@@ -1,3 +1,16 @@
+//fix Google Chrome not showing required validation for car type (CHROME BUG: Cant focus)
+
+function cartypevald() {
+    var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+    if (is_chrome) {
+        if (!$('[name="cartype"]').is(':checked')) {
+            return false;
+        }
+    }else {
+        return true;
+    }
+}
+
 //*used jquery here
 $(document).ready(function() {
     var form = $('#form1-subsc'); //form to be submited
