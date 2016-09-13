@@ -518,9 +518,9 @@ if (!empty($_GET)){
 								<div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
 									<h2 class="s-titleDet">CAR PAYMENT CALCULATOR</h2>
 									<div class="b-detail__main-aside-payment-form">
-										<form action="">
-											<input type="text" placeholder="LOAN AMOUNT" value="" id="lamt" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
-											<input type="text" placeholder="DOWN PAYMENT" value="" id="dpay" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
+										<form id="emicalc" action="#" method="post">
+											<input type="text" placeholder="LOAN AMOUNT" id="lamt" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
+											<input type="text" placeholder="DOWN PAYMENT" id="dpay" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" required />
 											<div class="s-relative">
 												<select id="term" class="m-select" required> 
 													<option >LOAN TERM IN MONTHS</option>
@@ -531,8 +531,9 @@ if (!empty($_GET)){
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
-											<input type="text" placeholder="INTEREST RATE IN %" value="" id="interest" required />
-											<button type="button" class="btn m-btn" onclick="calemi()">Calculate<span class="fa fa-angle-right"></span></button>
+											<input type="text" placeholder="INTEREST RATE IN %" pattern="[0-9]+([\.,][0-9]+)?" step="0.1"
+                                                   title="Only Number & Decimal Allowed ." id="interest" required />
+											<button type="submit" class="btn m-btn">Calculate<span class="fa fa-angle-right"></span></button>
 											<button type="button" class="btn m-btn" onclick="resetemi()">Reset<span class="fa fa-angle-right"></span></button>
 										</form>
 									</div>
