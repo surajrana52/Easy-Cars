@@ -32,22 +32,18 @@ class searchresult
             $conditions[] = "price >= '$budget'";
         }
         if (!empty($millage)){
-            $conditions2[] = "( millage >= '$millage'";
+            $conditions[] = "millage >= '$millage'";
         }
         if (!empty($transmission)){
-            $conditions2[] = "transmission='$transmission'";
+            $conditions[] = "transmission='$transmission'";
         }
         if (!empty($displacement)){
-            $conditions2[] = "displacement >= '$displacement' ) ";
+            $conditions[] = "displacement >= '$displacement'";
         }
 
         $sql = $query;
         if (count($conditions)>0){
             $sql .=" WHERE ".implode(' AND ',$conditions);
-        }
-        if (count($conditions2)>0){
-            $sql .=" AND ".implode(' OR ',$conditions2);
-            //$sql .="ORDER BY id desc";
         }
 
         $this->advanceSearch($sql);
