@@ -17,6 +17,21 @@ class details
         $this->db = $DB_con;
     }
 
+    public function validate($variable){
+
+        $stmt = $this->db->prepare("SELECT id FROM car_details WHERE id=:carid");
+        $stmt->execute(array(':carid' => $variable));
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        while ($res = $stmt->fetch()) {
+            if(count($res)){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+
+    }
     //fetch details from database for details.php page
     public function getDetails($carid)
     {

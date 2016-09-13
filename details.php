@@ -2,23 +2,29 @@
 require ('php/classes/details.class.php');
 if (!empty($_GET)){
 	$carid=$_GET['carid'];
-	if($obj->getDetails($carid)){
-		$data = $obj->result;
-	}
-	if($obj->getCarImages()){
-		$data2 = $obj->images;
-	}
 
-    if($obj->getFeatures()){
-        $data3 = $obj->getFeatures_array;
+    if ($obj->validate($carid)) {
+        if ($obj->getDetails($carid)) {
+            $data = $obj->result;
+        }
+        if ($obj->getCarImages()) {
+            $data2 = $obj->images;
+        }
+
+        if ($obj->getFeatures()) {
+            $data3 = $obj->getFeatures_array;
+        }
+
+        if ($obj->getSpecs()) {
+            $data4 = $obj->getSpec_result;
+        }
+    }else{
+        header('Location: 404.html?invalidcar');
+        die();
     }
-
-    if($obj->getSpecs()){
-        $data4 = $obj->getSpec_result;
-    }
-
 }else{
-	//header('Location: index.html');
+	header('Location: index.html');
+    die();
 }
 ?>
 <html>

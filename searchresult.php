@@ -373,6 +373,9 @@ if (isset($_POST['findmycar'])) {
     $(document).ready(function() {
         $('#pagdiv li:lt(3)').show();
         var items =  "<?php echo $countsize; ?>";
+        if (items < 2){
+            $('#pagloadmore').hide();
+        }
         console.log(items);
         var shown =  3;
         $('#pagloadmore').click(function () {
