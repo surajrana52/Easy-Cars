@@ -214,13 +214,18 @@ if (isset($_POST['findmycar'])) {
 						<aside class="b-items__aside">
 							<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">REFINE YOUR SEARCH</h2>
 							<div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
-								<form>
+								<form action="<?php echo $_SERVER["PHP_SELF"]."?pageno=1"; ?>" method="post">
 									<div class="b-items__aside-main-body">
 										<div class="b-items__aside-main-body-item">
 											<label>CAR TYPE</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Car Type</option>
+												<select name="cartype" class="m-select" required>
+                                                    <option value="">Car Type</option>
+                                                    <option value="hatchback">HatchBack</option>
+                                                    <option value="sedan">Sedan</option>
+                                                    <option value="coupe">Coupe</option>
+                                                    <option value="convertable">Convertable</option>
+                                                    <option value="suv">SUV</option>
 												</select>
 												<span class="fa fa-caret-down"></span>
 											</div>
@@ -228,58 +233,68 @@ if (isset($_POST['findmycar'])) {
 										<div class="b-items__aside-main-body-item">
 											<label>MANUFACTURER</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Manufacturer</option>
-												</select>
-												<span class="fa fa-caret-down"></span>
+                                                <select name="car_manufacturer" required>
+                                                    <option value="" selected>Any Make</option>
+                                                    <option value="marutisuzuki">Maruti Suzuki</option>
+                                                </select>
+                                                <span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
 											<label>BUDGET</label>
 											<div class="slider"></div>
-											<input type="hidden" name="min" value="100" class="j-min" />
-											<input type="hidden" name="max" value="1000" class="j-max" />
+											<input type="hidden" name="budget" value="100" class="j-min" required />
 										</div>
 										<div class="b-items__aside-main-body-item">
 											<label>MILLAGE</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Millage</option>
-												</select>
-												<span class="fa fa-caret-down"></span>
+                                                <select name="millage">
+                                                    <option value="" selected>MILLAGE</option>
+                                                    <option value="15">Above 15 KMPL</option>
+                                                    <option value="18">Above 18 KMPL</option>
+                                                    <option value="20">Above 20 KMPL</option>
+                                                </select>
+                                                <span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
 											<label>TRANSMISSION</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Transmission</option>
-												</select>
-												<span class="fa fa-caret-down"></span>
+                                                <select name="transmission">
+                                                    <option value="">Transmission</option>
+                                                    <option value="manual">Manual</option>
+                                                    <option value="automatic">Automatic</option>
+                                                </select>
+                                                <span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
 											<label>FUEL TYPE</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Fuel Types</option>
-												</select>
-												<span class="fa fa-caret-down"></span>
+                                                <select name="fuel_type" required>
+                                                    <option value="" selected>FUEL</option>
+                                                    <option value="petrol">PETROL</option>
+                                                    <option value="diesel">DIESEL</option>
+                                                </select>
+                                                <span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 										<div class="b-items__aside-main-body-item">
 											<label>DISPLACEMENT</label>
 											<div>
-												<select name="select1" class="m-select">
-													<option value="" selected="">Engine</option>
-												</select>
-												<span class="fa fa-caret-down"></span>
+                                                <select name="displacement">
+                                                    <option value="" selected>Displacement</option>
+                                                    <option value="1000">Above 1000 CC</option>
+                                                    <option value="1500">Above 1500 CC</option>
+                                                    <option value="2000">Above 2000 CC</option>
+                                                    <option value="2500">Above 2500 CC</option>
+                                                </select>
+                                                <span class="fa fa-caret-down"></span>
 											</div>
 										</div>
 									</div>
 									<footer class="b-items__aside-main-footer">
-										<button type="submit" class="btn m-btn">FILTER VEHICLES<span class="fa fa-angle-right"></span></button><br />
-										<a href="#">RESET ALL FILTERS</a>
+										<button type="submit" name="findmycar" value="findclicked" class="btn m-btn">FILTER VEHICLES<span class="fa fa-angle-right"></span></button><br />
 									</footer>
 								</form>
 							</div>							
@@ -351,49 +366,9 @@ if (isset($_POST['findmycar'])) {
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.placeholder.min.js"></script>
 		<script src="assets/js/theme.js"></script>
+        <script src="assets/js/customfunc_compare.js"></script>
 <script>
 
-    $(document).ready(function() {
-        $('#compareurl').bind('click', function(e){
-            e.preventDefault();
-        });
-        if ($('input[type=checkbox]:checked').length == 2){
-            $('#compareurl').html('COMPARE NOW : 2 CARS');
-        }else if($('input[type=checkbox]:checked').length == 1){
-            $('#compareurl').html('COMPARE (SELECT ONE MORE CAR) : 1 CARS');
-        }else{
-            $('#compareurl').html('COMPARE (SELECT CARS): 0 CARS');
-        }
-    });
-    var $checkboxes;
-    $('input[type=checkbox]').on('click', function (e) {
-        if ($('input[type=checkbox]:checked').length != 2){
-            $('#compareurl').bind('click', function(e){
-                e.preventDefault();
-            });
-        }
-        if ($('input[type=checkbox]:checked').length == 2){
-            $('#compareurl').html('COMPARE NOW : 2 CARS');
-            $('#compareurl').unbind('click');
-        }else if($('input[type=checkbox]:checked').length == 1){
-            $('#compareurl').html('COMPARE (SELECT ONE MORE CAR) : 1 CARS');
-        }else{
-            $('#compareurl').html('COMPARE (SELECT CARS) : 0 CARS');
-        }
-
-        if ($('input[type=checkbox]:checked').length <= 2){
-            $checkboxes = $('input:checkbox').change(storeuser);
-        }
-        if ($('input[type=checkbox]:checked').length > 2) {
-            $(this).prop('checked', false);
-            alert("allowed only 2");
-        }
-    });
-    function storeuser() {
-        var users = $checkboxes.map(function() {
-            if(this.checked) return this.value;
-        }).get().join('&carid_two=');
-        $("#compareurl").attr("href", "compare.php?carid_one="+users)
-    }
+    
 </script>
 		</html>
