@@ -32,7 +32,8 @@ $('input[type=checkbox]').on('click', function (e) {
     }
     if ($('input[type=checkbox]:checked').length > 2) {
         $(this).prop('checked', false);
-        alert("allowed only 2");
+        swal("","You Can Compare Only Two Cars", "warning")
+        //alert("allowed only 2");
     }
 });
 function storeuser() {

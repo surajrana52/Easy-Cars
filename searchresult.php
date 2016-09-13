@@ -13,6 +13,7 @@ if (isset($_POST['findmycar'])) {
 
         $data= $obj->output;
         $data2 = $obj->queryResult;
+        $countsize = sizeof($data2);
     }
 }
 ?>
@@ -105,12 +106,13 @@ if (isset($_POST['findmycar'])) {
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 col-sm-8 col-xs-12">
-						<div class="b-items__cars">
+						<div class="b-items__cars" id="pagdiv">
                             <?php
                             if (count($data2) >1) {
                                 $counter =1;
                                 foreach ($data2 as $keys => $value1) {
                                     ?>
+                                    <li style="display:none;">
                                     <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.5s">
                                         <div class="b-items__cars-one-img">
                                             <img src="<?php $obj->getCarImages($value1['id']) ?>"/>
@@ -147,6 +149,7 @@ if (isset($_POST['findmycar'])) {
                                             </div>
                                         </div>
                                     </div>
+                                    </li>
                                     <?php
                                 }
                             }elseif(count($data2)<1){
@@ -199,17 +202,16 @@ if (isset($_POST['findmycar'])) {
                             }
                             ?>
 						</div>
-						<div class="b-items__pagination wow zoomInUp" data-wow-delay="0.5s">
-							<div class="b-items__pagination-main">
-								<a data-toggle="modal" data-target="#myModal" href="#" class="m-left"><span class="fa fa-angle-left"></span></a>
-								<span class="m-active"><a href="#">1</a></span>
-								<span><a href="#">2</a></span>
-								<span><a href="#">3</a></span>
-								<span><a href="#">4</a></span>
-								<a href="#" class="m-right"><span class="fa fa-angle-right"></span></a>    
-							</div>
+                            <div class="b-compare__links wow zoomInUp" data-wow-delay="0.3s">
+                                <div class="row">
+                                    <div class="col-sm-3 col-xs-12 col-sm-offset-2">
+                                    </div>
+                                    <div  class="col-sm-3 col-xs-12">
+                                        <a href="javascript:void(0)" id="pagloadmore" class="btn m-btn">Load More<span class="fa fa-angle-down"></span></a>
+                                    </div><br>
+                                </div>
+                            </div>
 						</div>
-					</div>
 					<div class="col-lg-3 col-sm-4 col-xs-12">
 						<aside class="b-items__aside">
 							<h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">REFINE YOUR SEARCH</h2>
@@ -309,7 +311,7 @@ if (isset($_POST['findmycar'])) {
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-md-offset-3 col-xs-6 col-xs-offset-6">
-						<ul class="b-features__items">
+                        <ul class="b-features__items">
 							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Low Prices, No Haggling</li>
 							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Largest Car Database</li>
 							<li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">EMI Calculator</li>
@@ -361,14 +363,25 @@ if (isset($_POST['findmycar'])) {
 <script src="assets/js/modernizr.custom.js"></script>
 		<!-- jQuery UI Slider -->
 		<script src="assets/plugins/slider/jquery.ui-slider.js"></script>
-		
 		<script src="assets/js/jquery.smooth-scroll.js"></script>
 		<script src="assets/js/wow.min.js"></script>
 		<script src="assets/js/jquery.placeholder.min.js"></script>
 		<script src="assets/js/theme.js"></script>
+        <script src="assets/js/sweetalert.min.js"></script>
         <script src="assets/js/customfunc_compare.js"></script>
 <script>
-
-    
+    $(document).ready(function() {
+        $('#pagdiv li:lt(3)').show();
+        var items =  "<?php echo $countsize; ?>";
+        console.log(items);
+        var shown =  3;
+        $('#pagloadmore').click(function () {
+            shown = $('#pagdiv li:visible').size()+5;
+            if(shown< items) {$('#pagdiv li:lt('+shown+')').show();}
+            else {$('#pagdiv li:lt('+items+')').show();
+                $('#pagloadmore').hide();
+            }
+        });
+    });
 </script>
-		</html>
+</html>

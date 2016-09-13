@@ -371,3 +371,5 @@ if(!empty($_GET)){
 <script src="assets/js/modernizr.custom.js"></script>
 <script src="assets/js/jquery.placeholder.min.js"></script>
 <script src="assets/js/theme.js"></script>
+</body>
+</html>
