@@ -55,17 +55,17 @@ if (isset($_POST['findmycar'])) {
         <div class="row">
             <div class="col-sm-3 col-xs-4">
                 <div class="b-nav__logo wow slideInLeft">
-                    <h3><a href="index.html">Easy <span>Cars</span></a></h3>
-                    <h2><a href="index.html">Project For SV.CO 2016</a></h2>
+                    <h3><a href="index.php">Easy <span>Cars</span></a></h3>
+                    <h2><a href="index.php">Project For SV.CO 2016</a></h2>
                 </div>
             </div>
             <div class="col-sm-9 col-xs-8">
                 <div class="b-nav__list wow slideInRight">
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>                            
-                            <li><a href="contacts.html">Contact Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About</a></li>                            
+                            <li><a href="contacts.php">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ if (isset($_POST['findmycar'])) {
 
 		<div class="b-breadCumbs s-shadow">
 			<div class="container wow zoomInUp" data-wow-delay="0.5s">
-				<a href="index.html" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="" class="b-breadCumbs__page m-active">Search Results</a>
+				<a href="index.php" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a href="" class="b-breadCumbs__page m-active">Search Results</a>
 			</div>
 		</div><!--b-breadCumbs-->
 		
@@ -328,8 +328,8 @@ if (isset($_POST['findmycar'])) {
 					<div class="col-xs-4">
 						<div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
 							<div class="b-nav__logo">
-								<h3><a href="index.html">Easy<span>Cars</span></a></h3>
-								<h2><a href="index.html">Project For SV.CO 2016</a></h2>
+								<h3><a href="index.php">Easy<span>Cars</span></a></h3>
+								<h2><a href="index.php">Project For SV.CO 2016</a></h2>
 							</div>
 							
 						</div>
@@ -345,9 +345,9 @@ if (isset($_POST['findmycar'])) {
 							</div>
 							<nav class="b-footer__content-nav">
 								<ul>
-									<li><a href="index.html">Home</a></li>																											
-									<li><a href="about.html">About</a></li>
-									<li><a href="contacts.html">Contact Us</a></li>
+									<li><a href="index.php">Home</a></li>																											
+									<li><a href="about.php">About</a></li>
+									<li><a href="contacts.php">Contact Us</a></li>
 								</ul>
 							</nav>
 						</div>
