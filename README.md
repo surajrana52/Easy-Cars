@@ -2,20 +2,29 @@
 Coding project for sv.co
 
 /***********************************/
+
 We messed up last two Git commits :)
 
 please refer here for sourse code https://github.com/surajrana52/Main-Project/tree/8734cd847236113a1a4270c8b9a5d6e13dfd723c
 
 Car DataBase is also limited for best use please use following data in advance search 
+
 Car Type = HatchBack 
+
 Car Manufacturer = Maruti Suzuki
+
 Fuel Type = Petrol
+
 Millage = above 15kmpl
+
 Budget = 3,00,000/-
+
 Transmission = Manual
+
 Displacement = Above 1000CC
 
 Also we are using FREE HOSTING so its prone to error
+
 /********************************/
 
 We have developed this project for SV.CO
@@ -26,6 +35,7 @@ Objective of this project is to let users find their dream cars
 
 
 /****************************/
+
 Plugins used in this project are:
 
 PHPMailer : https://github.com/PHPMailer/PHPMailer
